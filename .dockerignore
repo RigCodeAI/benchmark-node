@@ -1,0 +1,10 @@
+.git
+target
+**/node_modules
+**/dist
+**/app.bundle.js
+**/app.bundle.js.map
+results/*
+!results/README.md
+!results/examples
+**/target

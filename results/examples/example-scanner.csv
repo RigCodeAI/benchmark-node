@@ -1,0 +1,4 @@
+category,case_id,route,path,line,rule_id
+CWE-89,cwe-89-vulnerable,/benchmark/cwe-89/vulnerable,apps/koa-product/src/semantics/injection.js,25,EXAMPLE.SQL
+CWE-79,cwe-79-vulnerable,/benchmark/cwe-79/vulnerable,apps/koa-product/src/semantics/output.js,12,EXAMPLE.XSS
+NODE-EVENT-LOOP-STARVATION,node-event-loop-starvation-vulnerable,/benchmark/node-event-loop-starvation/vulnerable,apps/koa-product/src/semantics/node.js,26,EXAMPLE.EVENT_LOOP

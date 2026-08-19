@@ -1,0 +1,27 @@
+{
+  "name": "benchmark-node-koa-product",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Locked Koa application used by BenchmarkNode",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22 <27"
+  },
+  "dependencies": {
+    "@koa/router": "15.7.0",
+    "@libsql/client": "0.17.4",
+    "@xmldom/xmldom": "0.9.11",
+    "ejs": "3.1.10",
+    "fast-xml-parser": "5.11.0",
+    "js-yaml": "4.1.0",
+    "koa": "3.2.1",
+    "ldapts": "9.0.0",
+    "mongodb": "7.5.0",
+    "pino": "10.3.1",
+    "xpath": "0.0.34"
+  }
+}

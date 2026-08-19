@@ -1,0 +1,5 @@
+{
+  "name": "mongodb",
+  "version": "6.19.0",
+  "main": "index.js"
+}

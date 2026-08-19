@@ -1,0 +1,16 @@
+services:
+  koa:
+    build:
+      context: .
+      args: { NODE_VERSION: 24.19.0, BENCHMARK_APP: koa }
+    ports: ["3000:3000"]
+  nest:
+    build:
+      context: .
+      args: { NODE_VERSION: 24.19.0, BENCHMARK_APP: nest-express }
+    ports: ["3001:3000"]
+  aurelia:
+    build:
+      context: .
+      args: { NODE_VERSION: 24.19.0, BENCHMARK_APP: aurelia2 }
+    ports: ["3002:3000"]

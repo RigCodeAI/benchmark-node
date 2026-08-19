@@ -1,0 +1,7 @@
+{
+  "name": "benchmark-node-koa-source-breadth",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "@koa/router": "15.7.0", "koa": "3.2.1" }
+}

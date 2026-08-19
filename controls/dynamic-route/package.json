@@ -1,0 +1,6 @@
+{
+  "name": "benchmark-node-dynamic-route-control",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": { "@koa/router": "15.7.0", "koa": "3.2.1" }
+}

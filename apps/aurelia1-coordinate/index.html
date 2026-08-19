@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>BenchmarkNode Aurelia browser qualification fixture</title>
+  </head>
+  <body aurelia-app>
+    <main>
+      <label>Expression <input id="expression" value.bind="expression"></label>
+      <button id="submit" click.trigger="submit()">Evaluate</button>
+      <output id="result" textcontent.bind="result"></output>
+    </main>
+    <script src="app.bundle.js"></script>
+  </body>
+</html>

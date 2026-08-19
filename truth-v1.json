@@ -1,0 +1,1598 @@
+{
+  "schema_version": "rig-benchmark-node-truth/v1",
+  "suite_id": "rig-benchmark-node-v1",
+  "suite_state": "QUALIFICATION",
+  "support_policy": "support-policy-v1.json",
+  "exact_family": {
+    "runtime_coordinates": [
+      "node-22.23.2",
+      "node-24.19.0",
+      "node-26.7.0"
+    ],
+    "framework_coordinates": [
+      "koa-2.16.4_router-14",
+      "koa-3.2.1_router-15",
+      "nestjs-10.4.22-express",
+      "nestjs-10.4.22-fastify",
+      "nestjs-11.2.1-express",
+      "nestjs-11.2.1-fastify",
+      "aurelia-1.4.1-koa-3.2.1",
+      "aurelia-2.0.0-rc.2-koa-3.2.1"
+    ],
+    "adapter_family": "node-v8-loader-v2"
+  },
+  "language_corpus": {
+    "path": "corpus/language",
+    "manifest": "corpus/language/package.json",
+    "command": "npm start --prefix corpus/language",
+    "required_categories": 40,
+    "controls_per_category": 4,
+    "expected_stdout": "BenchmarkNode language corpus: categories=40 controls=160 vulnerable=40 safe=40 unknown=40 unsupported=40"
+  },
+  "source_digests": {
+    "apps/aurelia1-coordinate/build.mjs": "sha256:6ce0df1edbc3ae0c39592e3b00e164af8c04e6c33670e6dcd0135fe3237ef312",
+    "apps/aurelia1-coordinate/index.html": "sha256:f997853b966537805924c57e7a77655c368a470b8ce462b8039c9e63e0c701b3",
+    "apps/aurelia1-coordinate/package-lock.json": "sha256:f1d0ac56813191396a34531065a379ae547521a31e15afe342ec27bf3c89bb49",
+    "apps/aurelia1-coordinate/package.json": "sha256:e47dd951f22a8cc017c372896652e39e4eb3a39045576ba40704e736e7343586",
+    "apps/aurelia1-coordinate/server.js": "sha256:7e73a314a53cbd69432903fc852b616bca94fa5871b03092a2f622965f710b55",
+    "apps/aurelia1-coordinate/src/frontend.js": "sha256:8f65f2cd5770ee229019dc183c61e089114c62d5dfa53d588420e0a4327dd587",
+    "apps/aurelia2-coordinate/build.mjs": "sha256:6ce0df1edbc3ae0c39592e3b00e164af8c04e6c33670e6dcd0135fe3237ef312",
+    "apps/aurelia2-coordinate/index.html": "sha256:3bf0691fffe31265c7c34a1769e8a54a1b35755aac0083b6984248796c179eeb",
+    "apps/aurelia2-coordinate/package-lock.json": "sha256:f9e0a5c68c1e882c944b33f694f9c052f0a85d641847d38997dff809cddffb76",
+    "apps/aurelia2-coordinate/package.json": "sha256:50143e98010b85879f6a0b600865e56199d16d95adc54d12fbb83f18a37e5db2",
+    "apps/aurelia2-coordinate/server.js": "sha256:053ed8461764d40d5e3841c06c7902d75ad4ba856fd6559108c59420542b826d",
+    "apps/aurelia2-coordinate/src/frontend.js": "sha256:04e27d52d6a6479461eb532e6456ec4b0e1bdc527bf7ccfdfaa4f56054cd8a22",
+    "apps/koa-product/.rig.json": "sha256:1e99d5e6217ac9335f29c3ea0ecc06f24c456844dda99f59f1e71e2ee439e6ae",
+    "apps/koa-product/package-lock.json": "sha256:a6c338cb031eba6cea32461382b17f83d7d926b6c733260d1e6283407de7ca6f",
+    "apps/koa-product/package.json": "sha256:02104824ae79436888ce3351f391a1e3000ac55b180a29bcd6473cc53608ff2d",
+    "apps/koa-product/src/body.js": "sha256:da59666cef150ec7799378f40b147cd30e14e6eb97c376bf27d258f3f95467f2",
+    "apps/koa-product/src/controller/access.js": "sha256:0afb4d7d84f79602bd2b448e7adc296f7f6b6883765d279da799cee09d9fe678",
+    "apps/koa-product/src/controller/concurrency.js": "sha256:c5560ba5c3bdfe756d0423cfb4461159ac613f52ff2d561aeb055791835f5142",
+    "apps/koa-product/src/controller/index.js": "sha256:e0199b52f6fa3d03aec1752a7da5c769fd5570a25ad8b2b0455bc2093cd27cfb",
+    "apps/koa-product/src/controller/service.js": "sha256:f0882dc7accfa946a163adb8cb515d61422b670c7b89f19f9980933005b95dd8",
+    "apps/koa-product/src/controller/workflow.js": "sha256:8df4f230508261e37da7c9d8fd42e516e2463b43552555a1b55fcdda5bb9a9cc",
+    "apps/koa-product/src/fixtures/public.txt": "sha256:2422b664f6bd4bd43365696433fb987bce55320458c1ad6960d51f1fe74178dc",
+    "apps/koa-product/src/semantics/data.js": "sha256:be28a25bfa64695504bd36ac04ce680e9946e40669c9e83d96f553bd2ad1462e",
+    "apps/koa-product/src/semantics/helpers.js": "sha256:836fc7441f59fd5499bc9493f329bc42fd267d050d4cc42fe0e311c8e799b0d9",
+    "apps/koa-product/src/semantics/index.js": "sha256:f41a379196a650ea286788a12b4200f7ce873c9c4382149e256015c0136e9627",
+    "apps/koa-product/src/semantics/injection.js": "sha256:ea081b3f7b021452d06175968232e5a1b8b6ccb36eb3bcaeb6076f56222f7c92",
+    "apps/koa-product/src/semantics/node.js": "sha256:cb4eebfde650cafef12f1de900db1eb332d3cfa659811f7eaea202baa94117e8",
+    "apps/koa-product/src/semantics/output.js": "sha256:c76ba26996b491a7c9834d748d599d15cafc741af86ff2663d74dd4b86fc72fd",
+    "apps/koa-product/src/server.js": "sha256:6b3d38ddfc4b1aa21bff53479167cc24cab6b20d08311ebfe549fae6bf522247",
+    "apps/koa-product/test/application.test.js": "sha256:225a1b57928f46725a0dbc75a6266c551b93d946d6ae1eaee249d657bb384711",
+    "apps/koa-source-breadth/package-lock.json": "sha256:b049e1a61437e3966819729249d7b34f09bf2c8e1152beed9960c283725617c0",
+    "apps/koa-source-breadth/package.json": "sha256:2c7bb8b9d746ca7e09b97f783f459155e5a1f6e714cb83e2502176d4e72e3c18",
+    "apps/koa-source-breadth/server.js": "sha256:d8ea6629740ebce9ac66de95e316565b846b51bd44842a51d51324ff79712e9e",
+    "apps/koa2-coordinate/package-lock.json": "sha256:7369aa8180fc16f1a52f703559a6c52159fd7cecbd823d2418d926cf8e7dce95",
+    "apps/koa2-coordinate/package.json": "sha256:ae07cca6fea85ca3cc30da5c6a3bc26a28c25d472a914e47164336c6ff6f2a8d",
+    "apps/koa2-coordinate/server.js": "sha256:db3aeea69381c880fa24a2bbc41cd43ac7c3fda71ce83b46b2e7b38fa074dfa4",
+    "apps/koa3-esm-coordinate/handlers.mjs": "sha256:63d8bd987f7529f7f759ab9932058ad88793b9f248d8ba08f395e3a050681ade",
+    "apps/koa3-esm-coordinate/package-lock.json": "sha256:a15d2ab8af2c238ec71bb34c0f03d2c3a6e934c455de2d7dcc20c4b8881c0b47",
+    "apps/koa3-esm-coordinate/package.json": "sha256:ace50beecc820d9b3df8d2388c5dd720b4f79140fdf4395f6c8e9584a92f93c6",
+    "apps/koa3-esm-coordinate/server.mjs": "sha256:81227380943a68de85c4e62333eb091b43688f25250a808812e86c97406008c3",
+    "apps/nest-express-coordinate/package-lock.json": "sha256:5fb07b97a3bb2e6de813cc4904bc42c58a47f44bc1f819a8aa81744fa6d2b3c8",
+    "apps/nest-express-coordinate/package.json": "sha256:b4dcdb65d15ee9830a033041d07bfc88baf37a9f144670330c9accbcc8b6a1ca",
+    "apps/nest-express-coordinate/src/main.ts": "sha256:a85ec6345694a61a1c774c673134bfbf25ccba855e3476e5bce0e04302269f87",
+    "apps/nest-express-coordinate/tsconfig.json": "sha256:ced32834d337dd587cb9e05ca1e3bddb3986269048f1ae5564d76809cda93564",
+    "apps/nest-fastify-coordinate/package-lock.json": "sha256:c6df003b44822928c2307675074c0c55fbe07146b5608c6595e4ef697cc6e3c4",
+    "apps/nest-fastify-coordinate/package.json": "sha256:76a384e3124334b2cb3a7a3068ecea28063498f349ead968fdf7da4bb04a2980",
+    "apps/nest-fastify-coordinate/src/main.ts": "sha256:86b908a6e6cf2607148d9ac30c06e1beec2cc13c539dc6a1fe8486cf684e78b9",
+    "apps/nest-fastify-coordinate/tsconfig.json": "sha256:51cd78064fc62af9071b582fa1124fd7e3986f35ab50fd9a89033b9f4aeeeee4",
+    "apps/nest10-express-coordinate/package-lock.json": "sha256:dc63306fbe630ecf164f484b7a315982474ef93ff7d6af9e52fc4d253812f8c5",
+    "apps/nest10-express-coordinate/package.json": "sha256:f9e11d8d50c746a20f891047be17ef1b7f6ba2f1e000bc2df02cc161c2c00dd1",
+    "apps/nest10-express-coordinate/src/main.ts": "sha256:a85ec6345694a61a1c774c673134bfbf25ccba855e3476e5bce0e04302269f87",
+    "apps/nest10-express-coordinate/tsconfig.json": "sha256:ced32834d337dd587cb9e05ca1e3bddb3986269048f1ae5564d76809cda93564",
+    "apps/nest10-fastify-coordinate/package-lock.json": "sha256:189930a1b0701b25213bfa49bd5f7571112a8f81f3e0904535db6b00cf5a3ec0",
+    "apps/nest10-fastify-coordinate/package.json": "sha256:728220a69fe58d9471c41b17bdf5f01d9f74f9058e7abe2ed0a2b54a4da9aef2",
+    "apps/nest10-fastify-coordinate/src/main.ts": "sha256:86b908a6e6cf2607148d9ac30c06e1beec2cc13c539dc6a1fe8486cf684e78b9",
+    "apps/nest10-fastify-coordinate/tsconfig.json": "sha256:51cd78064fc62af9071b582fa1124fd7e3986f35ab50fd9a89033b9f4aeeeee4",
+    "controls/dynamic-route/package-lock.json": "sha256:1e632ec6f968a03688ca41730eb407782b9e19bd308fae2af835b9ba73a053bc",
+    "controls/dynamic-route/package.json": "sha256:c9cd51969620a6fc02139e285e98c1a35da986ec7662665d349cb41b9cefba91",
+    "controls/dynamic-route/server.js": "sha256:b6fdc9080471c513840faf790fab6495132916ca96d55250e0b4fb18f827c593",
+    "controls/lifecycle-script/safe/package-lock.json": "sha256:070d97825e5fc28fd3aa624e7c212b7068230247c8bbdda0637dd9c4a8233510",
+    "controls/lifecycle-script/safe/package.json": "sha256:da75f45160f35ad67fce367f86b768b64be229fb0ea6efbdf5d47645935b3c3d",
+    "controls/lifecycle-script/unknown/dispatch.js": "sha256:cdeaedeb9f267fcb7f33d0e3729a15ec021976d8b6daaa2bba00588ad218f523",
+    "controls/lifecycle-script/unknown/package-lock.json": "sha256:3e86f1968b9814aa22a9418041b17d549d801e2b097aaa8117b90ddb0fba593f",
+    "controls/lifecycle-script/unknown/package.json": "sha256:6c75a3e2cfaae47a566c1777b9ed587a1a5f53647b7eec1f40faa6c40a637a2a",
+    "controls/lifecycle-script/vulnerable/package-lock.json": "sha256:250ea5f04891d23ba3de18532c0ec7bab17fc1290844c1afccfd7d31fe700fd4",
+    "controls/lifecycle-script/vulnerable/package.json": "sha256:5661965a5b287ba24fcc3a2ee87c3d4c6725b7be49514d25ae473bf326d9d654",
+    "controls/lifecycle-script/vulnerable/postinstall.js": "sha256:db93e8a6af476fdd51971a56eef8ae39d81223aef2a32d0974989c2addad9484",
+    "controls/provider-spoof/index.js": "sha256:6eda9e7859b8db8f10149e183cb0515af836fcc80df690f7b0c2012ee547d8af",
+    "controls/provider-spoof/mongodb/index.js": "sha256:684e08afb0f1d4a414c693d050e9809e292b0602264c986dd3946d27fb3ded9d",
+    "controls/provider-spoof/mongodb/package.json": "sha256:6f2245652b8bcacc7ead5442f9d63e9f698ba786d1d563e2dd90f7c5f2fcba41",
+    "controls/provider-spoof/package-lock.json": "sha256:a2d4063e71447d8e2f1c3aa32b17d2356a26ea29a8af754edc508154eb712880",
+    "controls/provider-spoof/package.json": "sha256:17a551fdbbbeaa545057f88ef7aa530ff8b17edfc4ac4e2e18d3dd023dd36a24",
+    "controls/unqualified-coordinate/package-lock.json": "sha256:c75cd5572481a71ba9ccfa53e448b29fcc712fe5efe1e4ff8cf36a52db9b7aee",
+    "controls/unqualified-coordinate/package.json": "sha256:4d03d9ed49d91a60e6becabafc6c5837ece272b35a1b57862b47d5dfcebcb789",
+    "controls/unqualified-coordinate/server.js": "sha256:c0e62cd15bf5ab7aa4a715f155269e33e933cf226db52514e58e86aead15212a",
+    "corpus/language/package-lock.json": "sha256:2f5af2a1f8d699e8e7c9d54873894da75ce84a29b8376b8af2c2e4f683bc7004",
+    "corpus/language/package.json": "sha256:db8a7ccef5184f883eb1854ed67d27039c72bd6cac4dadf42e5673dece2d1ab5",
+    "corpus/language/src/categories/access.mjs": "sha256:e3625ede1b7c556e407743a689b375bdab1e7e5f71de053fea282069abf031f3",
+    "corpus/language/src/categories/data.mjs": "sha256:7d78dccc2194788d24e42a3fcc382fd1c820c40a2d161b60de9de5890e39117e",
+    "corpus/language/src/categories/injection.mjs": "sha256:5c633a07c3668454ded21efccadb3773b5f1fc9a2910dc76a73a44e09e5be199",
+    "corpus/language/src/categories/node.mjs": "sha256:400a41de359869712ad750a8120712887750b55b6cffa19b56708650cd163463",
+    "corpus/language/src/corpus.mjs": "sha256:a38313330459832b01284a6f6478f36f9905db58ef4332d4217c1094b5775fbf",
+    "corpus/language/src/main.mjs": "sha256:305db47cbb70dbf79c4fbc4ec65530fa44fd19e6ffb4c5c4fd6a459fba75a57b",
+    "corpus/language/test/corpus.test.mjs": "sha256:eb017bff23a023d951f8275d9d72d79e559c929f1204c815923d2aeac16c8884",
+    "product-evidence-v1.schema.json": "sha256:9c24d12e88975b44d4c0ee96d2f511b7679f39406114f2fcc7a465d92ba9e61f",
+    "qualification-report-v2.schema.json": "sha256:de135ccb63a66b5e027c84e18a66107c8c06f3c418b285c3e187effe461aaf83",
+    "support-policy-v1.json": "sha256:816667ff3d9496d2e76693d68aa3c57af7cfcb91df3efda5a679201264e7343a"
+  },
+  "repositories": [
+    {
+      "repository_id": "koa-product",
+      "path": "apps/koa-product",
+      "role": "ORDINARY_PRODUCT_APPLICATION"
+    },
+    {
+      "repository_id": "koa-source-breadth",
+      "path": "apps/koa-source-breadth",
+      "role": "SOURCE_BREADTH_CONTROL"
+    },
+    {
+      "repository_id": "koa2-coordinate",
+      "path": "apps/koa2-coordinate",
+      "role": "FRAMEWORK_COORDINATE"
+    },
+    {
+      "repository_id": "koa3-esm-coordinate",
+      "path": "apps/koa3-esm-coordinate",
+      "role": "FRAMEWORK_COORDINATE"
+    },
+    {
+      "repository_id": "nest10-express-coordinate",
+      "path": "apps/nest10-express-coordinate",
+      "role": "FRAMEWORK_COORDINATE"
+    },
+    {
+      "repository_id": "nest10-fastify-coordinate",
+      "path": "apps/nest10-fastify-coordinate",
+      "role": "FRAMEWORK_COORDINATE"
+    },
+    {
+      "repository_id": "nest-express-coordinate",
+      "path": "apps/nest-express-coordinate",
+      "role": "FRAMEWORK_COORDINATE"
+    },
+    {
+      "repository_id": "nest-fastify-coordinate",
+      "path": "apps/nest-fastify-coordinate",
+      "role": "FRAMEWORK_COORDINATE"
+    },
+    {
+      "repository_id": "aurelia1-coordinate",
+      "path": "apps/aurelia1-coordinate",
+      "role": "FRAMEWORK_COORDINATE"
+    },
+    {
+      "repository_id": "aurelia2-coordinate",
+      "path": "apps/aurelia2-coordinate",
+      "role": "FRAMEWORK_COORDINATE"
+    },
+    {
+      "repository_id": "dynamic-route",
+      "path": "controls/dynamic-route",
+      "role": "UNKNOWN_CONTROL"
+    },
+    {
+      "repository_id": "provider-spoof",
+      "path": "controls/provider-spoof",
+      "role": "HOSTILE_CONTROL"
+    },
+    {
+      "repository_id": "lifecycle-vulnerable",
+      "path": "controls/lifecycle-script/vulnerable",
+      "role": "HOSTILE_CONTROL"
+    },
+    {
+      "repository_id": "lifecycle-safe",
+      "path": "controls/lifecycle-script/safe",
+      "role": "SAFE_CONTROL"
+    },
+    {
+      "repository_id": "lifecycle-unknown",
+      "path": "controls/lifecycle-script/unknown",
+      "role": "UNKNOWN_CONTROL"
+    },
+    {
+      "repository_id": "unqualified-coordinate",
+      "path": "controls/unqualified-coordinate",
+      "role": "UNSUPPORTED_CONTROL"
+    }
+  ],
+  "categories": [
+    {
+      "category": "CWE-113",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-116",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-1321",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-1336",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-200",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_VALUE_FLOW"
+    },
+    {
+      "category": "CWE-201",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_VALUE_FLOW"
+    },
+    {
+      "category": "CWE-22",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_EFFECT"
+    },
+    {
+      "category": "CWE-284",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-287",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-306",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-328",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_PROPERTY"
+    },
+    {
+      "category": "CWE-330",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_PROPERTY"
+    },
+    {
+      "category": "CWE-352",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-362",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-400",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT"
+    },
+    {
+      "category": "CWE-501",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_VALUE_FLOW"
+    },
+    {
+      "category": "CWE-502",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-532",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_VALUE_FLOW"
+    },
+    {
+      "category": "CWE-601",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-611",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT"
+    },
+    {
+      "category": "CWE-614",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_PROPERTY"
+    },
+    {
+      "category": "CWE-639",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-643",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-776",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT"
+    },
+    {
+      "category": "CWE-78",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-79",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-840",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-841",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-862",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-863",
+      "mapping": "CONTROLLER",
+      "required_evidence_grade": "RUNTIME_DIFFERENTIAL"
+    },
+    {
+      "category": "CWE-89",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-90",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "CWE-918",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_EFFECT"
+    },
+    {
+      "category": "CWE-94",
+      "mapping": "DIRECT",
+      "required_evidence_grade": "RUNTIME_EFFECT"
+    },
+    {
+      "category": "CWE-943",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "NODE-EVENT-LOOP-STARVATION",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT"
+    },
+    {
+      "category": "NODE-PACKAGE-LIFECYCLE-SCRIPT",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "BUILD_PROVENANCE"
+    },
+    {
+      "category": "NODE-PROTOTYPE-POLLUTION",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_SEMANTIC"
+    },
+    {
+      "category": "NODE-REGEX-ENGINE-DOS",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT"
+    },
+    {
+      "category": "NODE-VM-CONTEXT-ESCAPE",
+      "mapping": "ADAPTED",
+      "required_evidence_grade": "RUNTIME_EFFECT"
+    }
+  ],
+  "promotion_requirements": {
+    "exact_runtime_and_framework_coordinates": true,
+    "ordinary_product_path": true,
+    "final_publication": true,
+    "complete_coverage": true,
+    "sealed_transcripts_verified": true,
+    "authenticated_readback_verified": true,
+    "deterministic_replay_verified": true,
+    "hostile_repository_suite_passed": true,
+    "resource_budgets_verified": true,
+    "minimum_held_out_applications": 3,
+    "minimum_held_out_vulnerable_categories": 40,
+    "minimum_held_out_safe_categories": 40,
+    "maximum_corpus_execution_ms": 5000,
+    "maximum_source_files": 20000,
+    "maximum_source_file_bytes": 4194304,
+    "maximum_total_source_bytes": 268435456,
+    "required_publication_state": "FINAL",
+    "required_coverage_verdict": "COMPLETE",
+    "maximum_false_positives": 0,
+    "maximum_false_negatives": 0
+  },
+  "product_cases": [
+    {
+      "case_id": "cwe-113-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-113/vulnerable",
+      "sink_family": "http_response",
+      "source_location": "/benchmark/cwe-113/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:47",
+      "rule_id": "IAST.HTTP_HEADER.INJECTION"
+    },
+    {
+      "case_id": "cwe-113-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-113/safe",
+      "sink_family": "http_response",
+      "source_location": "/benchmark/cwe-113/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:54"
+    },
+    {
+      "case_id": "cwe-113-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-113/unknown",
+      "sink_family": "http_response",
+      "source_location": "/benchmark/cwe-113/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#http_response",
+      "reason_code": "node_cwe_113_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-116-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-116/vulnerable",
+      "sink_family": "output_encoding",
+      "source_location": "/benchmark/cwe-116/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:33",
+      "rule_id": "IAST.OUTPUT_ENCODING.INJECTION"
+    },
+    {
+      "case_id": "cwe-116-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-116/safe",
+      "sink_family": "output_encoding",
+      "source_location": "/benchmark/cwe-116/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:40"
+    },
+    {
+      "case_id": "cwe-116-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-116/unknown",
+      "sink_family": "output_encoding",
+      "source_location": "/benchmark/cwe-116/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#output_encoding",
+      "reason_code": "node_cwe_116_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-1321-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-1321/vulnerable",
+      "sink_family": "object_merge",
+      "source_location": "/benchmark/cwe-1321/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/node.js:16",
+      "rule_id": "IAST.NODE.PROTOTYPE_POLLUTION"
+    },
+    {
+      "case_id": "cwe-1321-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-1321/safe",
+      "sink_family": "object_merge",
+      "source_location": "/benchmark/cwe-1321/safe",
+      "sink_location": "apps/koa-product/src/semantics/node.js:24"
+    },
+    {
+      "case_id": "cwe-1321-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-1321/unknown",
+      "sink_family": "object_merge",
+      "source_location": "/benchmark/cwe-1321/unknown",
+      "sink_location": "apps/koa-product/src/semantics/node.js#object_merge",
+      "reason_code": "node_cwe_1321_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-1336-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-1336/vulnerable",
+      "sink_family": "template",
+      "source_location": "/benchmark/cwe-1336/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:62",
+      "rule_id": "IAST.TEMPLATE.INJECTION"
+    },
+    {
+      "case_id": "cwe-1336-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-1336/safe",
+      "sink_family": "template",
+      "source_location": "/benchmark/cwe-1336/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:69"
+    },
+    {
+      "case_id": "cwe-1336-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-1336/unknown",
+      "sink_family": "template",
+      "source_location": "/benchmark/cwe-1336/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#template",
+      "reason_code": "node_cwe_1336_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-200-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-200/vulnerable",
+      "sink_family": "sensitive_data",
+      "source_location": "/benchmark/cwe-200/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:75",
+      "rule_id": "IAST.SENSITIVE_DATA.RESPONSE_EXPOSURE"
+    },
+    {
+      "case_id": "cwe-200-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-200/safe",
+      "sink_family": "sensitive_data",
+      "source_location": "/benchmark/cwe-200/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:81"
+    },
+    {
+      "case_id": "cwe-200-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-200/unknown",
+      "sink_family": "sensitive_data",
+      "source_location": "/benchmark/cwe-200/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#sensitive_data",
+      "reason_code": "node_cwe_200_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-201-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-201/vulnerable",
+      "sink_family": "sensitive_data",
+      "source_location": "/benchmark/cwe-201/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:87",
+      "rule_id": "IAST.SENSITIVE_DATA.OUTBOUND_EXPOSURE"
+    },
+    {
+      "case_id": "cwe-201-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-201/safe",
+      "sink_family": "sensitive_data",
+      "source_location": "/benchmark/cwe-201/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:99"
+    },
+    {
+      "case_id": "cwe-201-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-201/unknown",
+      "sink_family": "sensitive_data",
+      "source_location": "/benchmark/cwe-201/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#sensitive_data",
+      "reason_code": "node_cwe_201_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-22-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-22/vulnerable",
+      "sink_family": "filesystem",
+      "source_location": "/benchmark/cwe-22/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:49",
+      "rule_id": "IAST.FILESYSTEM.INJECTION"
+    },
+    {
+      "case_id": "cwe-22-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-22/safe",
+      "sink_family": "filesystem",
+      "source_location": "/benchmark/cwe-22/safe",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:57"
+    },
+    {
+      "case_id": "cwe-22-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-22/unknown",
+      "sink_family": "filesystem",
+      "source_location": "/benchmark/cwe-22/unknown",
+      "sink_location": "apps/koa-product/src/semantics/injection.js#filesystem",
+      "reason_code": "node_cwe_22_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-328-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-328/vulnerable",
+      "sink_family": "cryptography",
+      "source_location": "/benchmark/cwe-328/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/data.js:14",
+      "rule_id": "IAST.CRYPTO.WEAK_HASH"
+    },
+    {
+      "case_id": "cwe-328-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-328/safe",
+      "sink_family": "cryptography",
+      "source_location": "/benchmark/cwe-328/safe",
+      "sink_location": "apps/koa-product/src/semantics/data.js:21"
+    },
+    {
+      "case_id": "cwe-328-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-328/unknown",
+      "sink_family": "cryptography",
+      "source_location": "/benchmark/cwe-328/unknown",
+      "sink_location": "apps/koa-product/src/semantics/data.js#cryptography",
+      "reason_code": "node_cwe_328_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-330-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-330/vulnerable",
+      "sink_family": "randomness",
+      "source_location": "/benchmark/cwe-330/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/data.js:28",
+      "rule_id": "IAST.RANDOM.WEAK"
+    },
+    {
+      "case_id": "cwe-330-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-330/safe",
+      "sink_family": "randomness",
+      "source_location": "/benchmark/cwe-330/safe",
+      "sink_location": "apps/koa-product/src/semantics/data.js:34"
+    },
+    {
+      "case_id": "cwe-330-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-330/unknown",
+      "sink_family": "randomness",
+      "source_location": "/benchmark/cwe-330/unknown",
+      "sink_location": "apps/koa-product/src/semantics/data.js#randomness",
+      "reason_code": "node_cwe_330_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-400-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-400/vulnerable",
+      "sink_family": "resource_exhaustion",
+      "source_location": "/benchmark/cwe-400/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/data.js:95",
+      "rule_id": "IAST.REGEX.REDOS"
+    },
+    {
+      "case_id": "cwe-400-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-400/safe",
+      "sink_family": "resource_exhaustion",
+      "source_location": "/benchmark/cwe-400/safe",
+      "sink_location": "apps/koa-product/src/semantics/data.js:102"
+    },
+    {
+      "case_id": "cwe-400-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-400/unknown",
+      "sink_family": "resource_exhaustion",
+      "source_location": "/benchmark/cwe-400/unknown",
+      "sink_location": "apps/koa-product/src/semantics/data.js#resource_exhaustion",
+      "reason_code": "node_cwe_400_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-501-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-501/vulnerable",
+      "sink_family": "trust_boundary",
+      "source_location": "/benchmark/cwe-501/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:151",
+      "rule_id": "IAST.TRUST_BOUNDARY.VIOLATION"
+    },
+    {
+      "case_id": "cwe-501-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-501/safe",
+      "sink_family": "trust_boundary",
+      "source_location": "/benchmark/cwe-501/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:157"
+    },
+    {
+      "case_id": "cwe-501-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-501/unknown",
+      "sink_family": "trust_boundary",
+      "source_location": "/benchmark/cwe-501/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#trust_boundary",
+      "reason_code": "node_cwe_501_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-502-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-502/vulnerable",
+      "sink_family": "deserialization",
+      "source_location": "/benchmark/cwe-502/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/data.js:40",
+      "rule_id": "IAST.DESERIALIZATION.UNSAFE"
+    },
+    {
+      "case_id": "cwe-502-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-502/safe",
+      "sink_family": "deserialization",
+      "source_location": "/benchmark/cwe-502/safe",
+      "sink_location": "apps/koa-product/src/semantics/data.js:48"
+    },
+    {
+      "case_id": "cwe-502-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-502/unknown",
+      "sink_family": "deserialization",
+      "source_location": "/benchmark/cwe-502/unknown",
+      "sink_location": "apps/koa-product/src/semantics/data.js#deserialization",
+      "reason_code": "node_cwe_502_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-532-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-532/vulnerable",
+      "sink_family": "logging",
+      "source_location": "/benchmark/cwe-532/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:111",
+      "rule_id": "IAST.SENSITIVE_DATA.LOG_EXPOSURE"
+    },
+    {
+      "case_id": "cwe-532-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-532/safe",
+      "sink_family": "logging",
+      "source_location": "/benchmark/cwe-532/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:118"
+    },
+    {
+      "case_id": "cwe-532-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-532/unknown",
+      "sink_family": "logging",
+      "source_location": "/benchmark/cwe-532/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#logging",
+      "reason_code": "node_cwe_532_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-601-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-601/vulnerable",
+      "sink_family": "redirect",
+      "source_location": "/benchmark/cwe-601/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:125",
+      "rule_id": "IAST.REDIRECT.UNVALIDATED"
+    },
+    {
+      "case_id": "cwe-601-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-601/safe",
+      "sink_family": "redirect",
+      "source_location": "/benchmark/cwe-601/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:131"
+    },
+    {
+      "case_id": "cwe-601-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-601/unknown",
+      "sink_family": "redirect",
+      "source_location": "/benchmark/cwe-601/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#redirect",
+      "reason_code": "node_cwe_601_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-611-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-611/vulnerable",
+      "sink_family": "xml",
+      "source_location": "/benchmark/cwe-611/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/data.js:57",
+      "rule_id": "IAST.XML.EXTERNAL_ENTITY"
+    },
+    {
+      "case_id": "cwe-611-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-611/safe",
+      "sink_family": "xml",
+      "source_location": "/benchmark/cwe-611/safe",
+      "sink_location": "apps/koa-product/src/semantics/data.js:70"
+    },
+    {
+      "case_id": "cwe-611-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-611/unknown",
+      "sink_family": "xml",
+      "source_location": "/benchmark/cwe-611/unknown",
+      "sink_location": "apps/koa-product/src/semantics/data.js#xml",
+      "reason_code": "node_cwe_611_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-614-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-614/vulnerable",
+      "sink_family": "cookie",
+      "source_location": "/benchmark/cwe-614/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:137",
+      "rule_id": "IAST.COOKIE.INSECURE"
+    },
+    {
+      "case_id": "cwe-614-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-614/safe",
+      "sink_family": "cookie",
+      "source_location": "/benchmark/cwe-614/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:144"
+    },
+    {
+      "case_id": "cwe-614-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-614/unknown",
+      "sink_family": "cookie",
+      "source_location": "/benchmark/cwe-614/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#cookie",
+      "reason_code": "node_cwe_614_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-643-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-643/vulnerable",
+      "sink_family": "xml_query",
+      "source_location": "/benchmark/cwe-643/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:139",
+      "rule_id": "IAST.XPATH.INJECTION"
+    },
+    {
+      "case_id": "cwe-643-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-643/safe",
+      "sink_family": "xml_query",
+      "source_location": "/benchmark/cwe-643/safe",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:147"
+    },
+    {
+      "case_id": "cwe-643-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-643/unknown",
+      "sink_family": "xml_query",
+      "source_location": "/benchmark/cwe-643/unknown",
+      "sink_location": "apps/koa-product/src/semantics/injection.js#xml_query",
+      "reason_code": "node_cwe_643_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-776-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-776/vulnerable",
+      "sink_family": "xml",
+      "source_location": "/benchmark/cwe-776/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/data.js:79",
+      "rule_id": "IAST.XML.ENTITY_EXPANSION"
+    },
+    {
+      "case_id": "cwe-776-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-776/safe",
+      "sink_family": "xml",
+      "source_location": "/benchmark/cwe-776/safe",
+      "sink_location": "apps/koa-product/src/semantics/data.js:88"
+    },
+    {
+      "case_id": "cwe-776-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-776/unknown",
+      "sink_family": "xml",
+      "source_location": "/benchmark/cwe-776/unknown",
+      "sink_location": "apps/koa-product/src/semantics/data.js#xml",
+      "reason_code": "node_cwe_776_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-78-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-78/vulnerable",
+      "sink_family": "process",
+      "source_location": "/benchmark/cwe-78/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:35",
+      "rule_id": "IAST.COMMAND.INJECTION"
+    },
+    {
+      "case_id": "cwe-78-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-78/safe",
+      "sink_family": "process",
+      "source_location": "/benchmark/cwe-78/safe",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:42"
+    },
+    {
+      "case_id": "cwe-78-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-78/unknown",
+      "sink_family": "process",
+      "source_location": "/benchmark/cwe-78/unknown",
+      "sink_location": "apps/koa-product/src/semantics/injection.js#process",
+      "reason_code": "node_cwe_78_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-79-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-79/vulnerable",
+      "sink_family": "html_output",
+      "source_location": "/benchmark/cwe-79/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/output.js:19",
+      "rule_id": "IAST.XSS.OUTPUT_CONTEXT"
+    },
+    {
+      "case_id": "cwe-79-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-79/safe",
+      "sink_family": "html_output",
+      "source_location": "/benchmark/cwe-79/safe",
+      "sink_location": "apps/koa-product/src/semantics/output.js:26"
+    },
+    {
+      "case_id": "cwe-79-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-79/unknown",
+      "sink_family": "html_output",
+      "source_location": "/benchmark/cwe-79/unknown",
+      "sink_location": "apps/koa-product/src/semantics/output.js#html_output",
+      "reason_code": "node_cwe_79_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-89-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-89/vulnerable",
+      "sink_family": "sql",
+      "source_location": "/benchmark/cwe-89/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:19",
+      "rule_id": "IAST.SQL.INJECTION"
+    },
+    {
+      "case_id": "cwe-89-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-89/safe",
+      "sink_family": "sql",
+      "source_location": "/benchmark/cwe-89/safe",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:28"
+    },
+    {
+      "case_id": "cwe-89-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-89/unknown",
+      "sink_family": "sql",
+      "source_location": "/benchmark/cwe-89/unknown",
+      "sink_location": "apps/koa-product/src/semantics/injection.js#sql",
+      "reason_code": "node_cwe_89_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-90-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-90/vulnerable",
+      "sink_family": "directory_query",
+      "source_location": "/benchmark/cwe-90/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:115",
+      "rule_id": "IAST.LDAP.INJECTION"
+    },
+    {
+      "case_id": "cwe-90-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-90/safe",
+      "sink_family": "directory_query",
+      "source_location": "/benchmark/cwe-90/safe",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:125"
+    },
+    {
+      "case_id": "cwe-90-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-90/unknown",
+      "sink_family": "directory_query",
+      "source_location": "/benchmark/cwe-90/unknown",
+      "sink_location": "apps/koa-product/src/semantics/injection.js#directory_query",
+      "reason_code": "node_cwe_90_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-918-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-918/vulnerable",
+      "sink_family": "outbound_http",
+      "source_location": "/benchmark/cwe-918/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:64",
+      "rule_id": "IAST.OUTBOUND_HTTP.INJECTION"
+    },
+    {
+      "case_id": "cwe-918-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-918/safe",
+      "sink_family": "outbound_http",
+      "source_location": "/benchmark/cwe-918/safe",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:81"
+    },
+    {
+      "case_id": "cwe-918-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-918/unknown",
+      "sink_family": "outbound_http",
+      "source_location": "/benchmark/cwe-918/unknown",
+      "sink_location": "apps/koa-product/src/semantics/injection.js#outbound_http",
+      "reason_code": "node_cwe_918_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-94-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-94/vulnerable",
+      "sink_family": "code_execution",
+      "source_location": "/benchmark/cwe-94/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:99",
+      "rule_id": "IAST.CODE.INJECTION"
+    },
+    {
+      "case_id": "cwe-94-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-94/safe",
+      "sink_family": "code_execution",
+      "source_location": "/benchmark/cwe-94/safe",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:106"
+    },
+    {
+      "case_id": "cwe-94-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-94/unknown",
+      "sink_family": "code_execution",
+      "source_location": "/benchmark/cwe-94/unknown",
+      "sink_location": "apps/koa-product/src/semantics/injection.js#code_execution",
+      "reason_code": "node_cwe_94_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "cwe-943-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/cwe-943/vulnerable",
+      "sink_family": "document_query",
+      "source_location": "/benchmark/cwe-943/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:161",
+      "rule_id": "IAST.NOSQL.INJECTION"
+    },
+    {
+      "case_id": "cwe-943-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/cwe-943/safe",
+      "sink_family": "document_query",
+      "source_location": "/benchmark/cwe-943/safe",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:168"
+    },
+    {
+      "case_id": "cwe-943-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/cwe-943/unknown",
+      "sink_family": "document_query",
+      "source_location": "/benchmark/cwe-943/unknown",
+      "sink_location": "apps/koa-product/src/semantics/injection.js#document_query",
+      "reason_code": "node_cwe_943_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "node-event-loop-starvation-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/node-event-loop-starvation/vulnerable",
+      "sink_family": "event_loop",
+      "source_location": "/benchmark/node-event-loop-starvation/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/node.js:48",
+      "rule_id": "IAST.NODE.EVENT_LOOP_STARVATION"
+    },
+    {
+      "case_id": "node-event-loop-starvation-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/node-event-loop-starvation/safe",
+      "sink_family": "event_loop",
+      "source_location": "/benchmark/node-event-loop-starvation/safe",
+      "sink_location": "apps/koa-product/src/semantics/node.js:56"
+    },
+    {
+      "case_id": "node-event-loop-starvation-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/node-event-loop-starvation/unknown",
+      "sink_family": "event_loop",
+      "source_location": "/benchmark/node-event-loop-starvation/unknown",
+      "sink_location": "apps/koa-product/src/semantics/node.js#event_loop",
+      "reason_code": "node_node_event_loop_starvation_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "node-package-lifecycle-script-vulnerable",
+      "repository_id": "lifecycle-vulnerable",
+      "control": "vulnerable",
+      "sink_family": "package_lifecycle",
+      "source_location": "controls/lifecycle-script/vulnerable/package.json",
+      "sink_location": "controls/lifecycle-script/vulnerable/package.json#scripts.postinstall",
+      "rule_id": "IAST.NODE.PACKAGE_LIFECYCLE_SCRIPT"
+    },
+    {
+      "case_id": "node-package-lifecycle-script-safe",
+      "repository_id": "lifecycle-safe",
+      "control": "safe",
+      "sink_family": "package_lifecycle",
+      "source_location": "controls/lifecycle-script/safe/package.json",
+      "sink_location": "controls/lifecycle-script/safe/package.json#scripts"
+    },
+    {
+      "case_id": "node-package-lifecycle-script-unknown",
+      "repository_id": "lifecycle-unknown",
+      "control": "unknown",
+      "sink_family": "package_lifecycle",
+      "source_location": "controls/lifecycle-script/unknown/package.json",
+      "sink_location": "controls/lifecycle-script/unknown/package.json#scripts.postinstall",
+      "reason_code": "node_node_package_lifecycle_script_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "node-prototype-pollution-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/node-prototype-pollution/vulnerable",
+      "sink_family": "object_path",
+      "source_location": "/benchmark/node-prototype-pollution/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/node.js:32",
+      "rule_id": "IAST.NODE.PROTOTYPE_POLLUTION_PATH"
+    },
+    {
+      "case_id": "node-prototype-pollution-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/node-prototype-pollution/safe",
+      "sink_family": "object_path",
+      "source_location": "/benchmark/node-prototype-pollution/safe",
+      "sink_location": "apps/koa-product/src/semantics/node.js:40"
+    },
+    {
+      "case_id": "node-prototype-pollution-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/node-prototype-pollution/unknown",
+      "sink_family": "object_path",
+      "source_location": "/benchmark/node-prototype-pollution/unknown",
+      "sink_location": "apps/koa-product/src/semantics/node.js#object_path",
+      "reason_code": "node_node_prototype_pollution_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "node-regex-engine-dos-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/node-regex-engine-dos/vulnerable",
+      "sink_family": "regex",
+      "source_location": "/benchmark/node-regex-engine-dos/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/node.js:63",
+      "rule_id": "IAST.NODE.REGEX_ENGINE_DOS"
+    },
+    {
+      "case_id": "node-regex-engine-dos-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/node-regex-engine-dos/safe",
+      "sink_family": "regex",
+      "source_location": "/benchmark/node-regex-engine-dos/safe",
+      "sink_location": "apps/koa-product/src/semantics/node.js:70"
+    },
+    {
+      "case_id": "node-regex-engine-dos-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/node-regex-engine-dos/unknown",
+      "sink_family": "regex",
+      "source_location": "/benchmark/node-regex-engine-dos/unknown",
+      "sink_location": "apps/koa-product/src/semantics/node.js#regex",
+      "reason_code": "node_node_regex_engine_dos_semantic_coordinate_unresolved"
+    },
+    {
+      "case_id": "node-vm-context-escape-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "route": "/benchmark/node-vm-context-escape/vulnerable",
+      "sink_family": "vm",
+      "source_location": "/benchmark/node-vm-context-escape/vulnerable",
+      "sink_location": "apps/koa-product/src/semantics/node.js:77",
+      "rule_id": "IAST.NODE.VM_CONTEXT_ESCAPE"
+    },
+    {
+      "case_id": "node-vm-context-escape-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "route": "/benchmark/node-vm-context-escape/safe",
+      "sink_family": "vm",
+      "source_location": "/benchmark/node-vm-context-escape/safe",
+      "sink_location": "apps/koa-product/src/semantics/node.js:84"
+    },
+    {
+      "case_id": "node-vm-context-escape-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "route": "/benchmark/node-vm-context-escape/unknown",
+      "sink_family": "vm",
+      "source_location": "/benchmark/node-vm-context-escape/unknown",
+      "sink_location": "apps/koa-product/src/semantics/node.js#vm",
+      "reason_code": "node_node_vm_context_escape_semantic_coordinate_unresolved"
+    }
+  ],
+  "controller_cases": [
+    {
+      "case_id": "cwe-284-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-284/vulnerable",
+      "source_location": "apps/koa-product/.rig.json#cwe-284-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-284-vulnerable",
+      "rule_id": "RIG.ACCESS_CONTROL.IMPROPER"
+    },
+    {
+      "case_id": "cwe-284-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-284/safe",
+      "source_location": "apps/koa-product/.rig.json#cwe-284-safe",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-284-safe"
+    },
+    {
+      "case_id": "cwe-284-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "reason_code": "declared_cwe-284_policy_required"
+    },
+    {
+      "case_id": "cwe-287-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-287/vulnerable",
+      "source_location": "apps/koa-product/.rig.json#cwe-287-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-287-vulnerable",
+      "rule_id": "RIG.AUTHENTICATION.IMPROPER"
+    },
+    {
+      "case_id": "cwe-287-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-287/safe",
+      "source_location": "apps/koa-product/.rig.json#cwe-287-safe",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-287-safe"
+    },
+    {
+      "case_id": "cwe-287-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "reason_code": "declared_cwe-287_policy_required"
+    },
+    {
+      "case_id": "cwe-306-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-306/vulnerable",
+      "source_location": "apps/koa-product/.rig.json#cwe-306-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-306-vulnerable",
+      "rule_id": "RIG.AUTHENTICATION.MISSING"
+    },
+    {
+      "case_id": "cwe-306-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-306/safe",
+      "source_location": "apps/koa-product/.rig.json#cwe-306-safe",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-306-safe"
+    },
+    {
+      "case_id": "cwe-306-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "reason_code": "declared_cwe-306_policy_required"
+    },
+    {
+      "case_id": "cwe-352-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-352/vulnerable",
+      "source_location": "apps/koa-product/.rig.json#cwe-352-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-352-vulnerable",
+      "rule_id": "RIG.CSRF.MISSING"
+    },
+    {
+      "case_id": "cwe-352-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-352/safe",
+      "source_location": "apps/koa-product/.rig.json#cwe-352-safe",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-352-safe"
+    },
+    {
+      "case_id": "cwe-352-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "reason_code": "declared_cwe-352_policy_required"
+    },
+    {
+      "case_id": "cwe-362-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "CONCURRENCY",
+      "route": "/controller/race/vulnerable/claim",
+      "source_location": "apps/koa-product/.rig.json#cwe-362-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/concurrency.js",
+      "test_id": "cwe-362-vulnerable",
+      "rule_id": "RIG.CONCURRENCY.RACE"
+    },
+    {
+      "case_id": "cwe-362-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "CONCURRENCY",
+      "route": "/controller/race/safe/claim",
+      "source_location": "apps/koa-product/.rig.json#cwe-362-safe",
+      "sink_location": "apps/koa-product/src/controller/concurrency.js",
+      "test_id": "cwe-362-safe"
+    },
+    {
+      "case_id": "cwe-362-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "CONCURRENCY",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/concurrency.js",
+      "reason_code": "declared_cwe-362_policy_required"
+    },
+    {
+      "case_id": "cwe-639-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-639/vulnerable",
+      "source_location": "apps/koa-product/.rig.json#cwe-639-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-639-vulnerable",
+      "rule_id": "RIG.TENANT.ISOLATION"
+    },
+    {
+      "case_id": "cwe-639-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-639/safe",
+      "source_location": "apps/koa-product/.rig.json#cwe-639-safe",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-639-safe"
+    },
+    {
+      "case_id": "cwe-639-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "reason_code": "declared_cwe-639_policy_required"
+    },
+    {
+      "case_id": "cwe-840-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "BUSINESS_LOGIC",
+      "route": "/controller/workflow/vulnerable/execute",
+      "source_location": "apps/koa-product/.rig.json#cwe-840-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/workflow.js",
+      "test_id": "cwe-840-vulnerable",
+      "rule_id": "RIG.WORKFLOW.LIMIT_BYPASS"
+    },
+    {
+      "case_id": "cwe-840-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "BUSINESS_LOGIC",
+      "route": "/controller/workflow/safe/execute",
+      "source_location": "apps/koa-product/.rig.json#cwe-840-safe",
+      "sink_location": "apps/koa-product/src/controller/workflow.js",
+      "test_id": "cwe-840-safe"
+    },
+    {
+      "case_id": "cwe-840-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "BUSINESS_LOGIC",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/workflow.js",
+      "reason_code": "declared_cwe-840_policy_required"
+    },
+    {
+      "case_id": "cwe-841-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "MULTI_SERVICE",
+      "route": "/controller/service/vulnerable",
+      "source_location": "apps/koa-product/.rig.json#cwe-841-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/service.js",
+      "test_id": "cwe-841-vulnerable",
+      "rule_id": "RIG.MULTI_SERVICE.STATE_BYPASS"
+    },
+    {
+      "case_id": "cwe-841-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "MULTI_SERVICE",
+      "route": "/controller/service/safe",
+      "source_location": "apps/koa-product/.rig.json#cwe-841-safe",
+      "sink_location": "apps/koa-product/src/controller/service.js",
+      "test_id": "cwe-841-safe"
+    },
+    {
+      "case_id": "cwe-841-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "MULTI_SERVICE",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/service.js",
+      "reason_code": "declared_cwe-841_policy_required"
+    },
+    {
+      "case_id": "cwe-862-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-862/vulnerable",
+      "source_location": "apps/koa-product/.rig.json#cwe-862-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-862-vulnerable",
+      "rule_id": "RIG.AUTHORIZATION.MISSING"
+    },
+    {
+      "case_id": "cwe-862-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-862/safe",
+      "source_location": "apps/koa-product/.rig.json#cwe-862-safe",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-862-safe"
+    },
+    {
+      "case_id": "cwe-862-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "reason_code": "declared_cwe-862_policy_required"
+    },
+    {
+      "case_id": "cwe-863-vulnerable",
+      "repository_id": "koa-product",
+      "control": "vulnerable",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-863/vulnerable",
+      "source_location": "apps/koa-product/.rig.json#cwe-863-vulnerable",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-863-vulnerable",
+      "rule_id": "RIG.AUTHORIZATION.INCORRECT"
+    },
+    {
+      "case_id": "cwe-863-safe",
+      "repository_id": "koa-product",
+      "control": "safe",
+      "report": "ACCESS_CONTROL",
+      "route": "/controller/cwe-863/safe",
+      "source_location": "apps/koa-product/.rig.json#cwe-863-safe",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "test_id": "cwe-863-safe"
+    },
+    {
+      "case_id": "cwe-863-unknown",
+      "repository_id": "koa-product",
+      "control": "unknown",
+      "report": "ACCESS_CONTROL",
+      "source_location": "apps/koa-product/.rig.json",
+      "sink_location": "apps/koa-product/src/controller/access.js",
+      "reason_code": "declared_cwe-863_policy_required"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "benchmark-node-koa-esm-qualification",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": { "start": "node server.mjs" },
+  "dependencies": {
+    "@koa/router": "15.7.0",
+    "koa": "3.2.1"
+  }
+}
