@@ -5,6 +5,37 @@ use serde_json::Value;
 
 use super::{read_json, NormalizedFinding, ScannerRun};
 
+pub(super) fn read_all(
+    paths: &[std::path::PathBuf],
+    requested_format: Option<&str>,
+    suite_id: &str,
+) -> Result<ScannerRun, String> {
+    let mut runs = paths
+        .iter()
+        .map(|path| read(path, requested_format, suite_id))
+        .collect::<Result<Vec<_>, _>>()?;
+    let first = runs
+        .first()
+        .ok_or("at least one results file is required")?;
+    let tool_name = first.tool_name.clone();
+    let tool_version = first.tool_version.clone();
+    let tool_kind = if runs.len() == 1 {
+        first.tool_kind.clone()
+    } else {
+        "MULTI_RESULT_SUBMISSION".to_owned()
+    };
+    let findings = runs
+        .drain(..)
+        .flat_map(|run| run.findings)
+        .collect::<Vec<_>>();
+    Ok(ScannerRun {
+        tool_name,
+        tool_version,
+        tool_kind,
+        findings,
+    })
+}
+
 pub(super) fn read(
     path: &Path,
     requested_format: Option<&str>,
@@ -298,5 +329,39 @@ mod tests {
             normalize_category("node-event-loop-starvation").as_deref(),
             Ok("NODE-EVENT-LOOP-STARVATION")
         );
+    }
+
+    #[test]
+    fn multiple_result_files_form_one_submission() {
+        let directory = std::env::temp_dir().join(format!(
+            "benchmark-node-multiple-results-{}",
+            std::process::id()
+        ));
+        let _ = std::fs::remove_dir_all(&directory);
+        std::fs::create_dir(&directory).unwrap();
+        let document = |case_id: &str| {
+            serde_json::json!({
+                "schema_version": "security-benchmark-scanner-results/v1",
+                "benchmark_id": "suite",
+                "tool": {"name": "scanner", "version": "1", "kind": "IAST"},
+                "findings": [{"category": "CWE-89", "case_id": case_id}]
+            })
+        };
+        let first = directory.join("first.json");
+        let second = directory.join("second.json");
+        std::fs::write(
+            &first,
+            serde_json::to_vec(&document("cwe-89-vulnerable")).unwrap(),
+        )
+        .unwrap();
+        std::fs::write(
+            &second,
+            serde_json::to_vec(&document("cwe-89-safe")).unwrap(),
+        )
+        .unwrap();
+        let run = read_all(&[first, second], Some("json"), "suite").unwrap();
+        assert_eq!(run.findings.len(), 2);
+        assert_eq!(run.tool_kind, "MULTI_RESULT_SUBMISSION");
+        std::fs::remove_dir_all(directory).unwrap();
     }
 }

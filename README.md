@@ -69,15 +69,15 @@ and multi-service behavior. Six Node-specific categories cover prototype
 pollution, event-loop starvation, package lifecycle scripts, JavaScript regex
 behavior, and VM context escape.
 
-The locked coordinate family is Node 22.23.2, 24.19.0, and 26.7.0; Koa 2.16.4
+The locked coordinate family is Node 22.17.1, 22.23.2, 24.19.0, and 26.7.0; Koa 2.16.4
 and 3.2.1; NestJS 10.4.22 and 11.2.1 with Express and Fastify; and Aurelia 1.4.1
 and 2.0.0-rc.2. Unrecognized coordinates must be reported as unsupported, not
 silently treated as safe.
 
 Browse [the case catalog](cases/catalog.json) or the human-readable
 [expected results](cases/expected-results.csv). See [QUICKSTART.md](QUICKSTART.md),
-[scanner integration](docs/scanner-integration.md), and [scoring](docs/scoring.md)
-for details.
+[scanner integration](docs/scanner-integration.md), [scoring](docs/scoring.md),
+and [high-assurance qualification](docs/qualification.md) for details.
 
 ## Commands
 

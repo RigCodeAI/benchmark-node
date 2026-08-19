@@ -1,4 +1,4 @@
-.PHONY: run run-koa2 run-koa-esm run-nest10 run-nest10-fastify run-nest run-nest-fastify run-aurelia1 run-aurelia2 score verify catalog
+.PHONY: run run-koa2 run-koa-esm run-nest10 run-nest10-fastify run-nest run-nest-fastify run-aurelia1 run-aurelia2 score verify verify-baselines catalog
 
 run:
 	./runBenchmark.sh koa
@@ -33,6 +33,9 @@ score:
 
 verify:
 	./verifyBenchmark.sh
+
+verify-baselines:
+	./scripts/verify-node001-baselines.sh
 
 catalog:
 	cargo run --quiet --locked -- catalog --output-dir cases

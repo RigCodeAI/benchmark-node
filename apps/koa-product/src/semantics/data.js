@@ -1,8 +1,22 @@
 "use strict";
 
 const crypto = require("node:crypto");
-const fs = require("node:fs");
 const v8 = require("node:v8");
+
+let xmlRuntimePromise;
+
+function loadXmlRuntime() {
+  if (xmlRuntimePromise === undefined) {
+    xmlRuntimePromise = Promise.all([
+      import("libxml2-wasm"),
+      import("libxml2-wasm/lib/nodejs.mjs"),
+    ]).then(([runtime, nodeIntegration]) => {
+      nodeIntegration.xmlRegisterFsInputProviders();
+      return runtime;
+    });
+  }
+  return xmlRuntimePromise;
+}
 
 function done(ctx) {
   ctx.body = { ok: true };
@@ -49,43 +63,59 @@ function deserializeSafe(ctx) {
   done(ctx);
 }
 
-function xxeVulnerable(ctx) {
+async function xxeVulnerable(ctx) {
   const input = String(ctx.query.input ?? "");
-  const { XMLParser } = require("fast-xml-parser");
-  const xmlParser = new XMLParser({ processEntities: true, ignoreAttributes: false });
+  const { ParseOption, XmlDocument } = await loadXmlRuntime();
+  // Entity substitution is enabled and external resources are not blocked.
   // benchmark-node:cwe-611-vulnerable
+  let document;
   try {
-    xmlParser.parse(input);
-    const match = input.match(/<!ENTITY\s+\w+\s+SYSTEM\s+["']file:\/\/([^"']+)["']/iu);
-    if (match) fs.readFileSync(`/${match[1]}`, "utf8");
+    document = XmlDocument.fromString(input, { option: ParseOption.XML_PARSE_NOENT });
   } catch {}
+  finally { document?.dispose(); }
   done(ctx);
 }
 
-function xxeSafe(ctx) {
+async function xxeSafe(ctx) {
   const input = String(ctx.query.input ?? "");
-  const { XMLParser } = require("fast-xml-parser");
-  const xmlParser = new XMLParser({ processEntities: false, ignoreAttributes: false });
+  const { ParseOption, XmlDocument } = await loadXmlRuntime();
+  // Entity substitution runs, but external resources are explicitly blocked.
   // benchmark-node:cwe-611-safe
-  try { xmlParser.parse(input.replace(/<!DOCTYPE/giu, "")); } catch {}
+  let document;
+  try {
+    document = XmlDocument.fromString(input, {
+      option: ParseOption.XML_PARSE_NOENT | ParseOption.XML_PARSE_NO_XXE,
+    });
+  } catch {}
+  finally { document?.dispose(); }
   done(ctx);
 }
 
-function entityExpansionVulnerable(ctx) {
+async function entityExpansionVulnerable(ctx) {
   const input = String(ctx.query.input ?? "");
-  const { XMLParser } = require("fast-xml-parser");
-  const xmlParser = new XMLParser({ processEntities: true });
+  const { ParseOption, XmlDocument } = await loadXmlRuntime();
+  // Internal entity substitution is enabled while network access is disabled.
   // benchmark-node:cwe-776-vulnerable
-  try { xmlParser.parse(input); } catch {}
+  let document;
+  try {
+    document = XmlDocument.fromString(input, {
+      option: ParseOption.XML_PARSE_NOENT | ParseOption.XML_PARSE_NONET,
+    });
+  } catch {}
+  finally { document?.dispose(); }
   done(ctx);
 }
 
-function entityExpansionSafe(ctx) {
+async function entityExpansionSafe(ctx) {
   const input = String(ctx.query.input ?? "");
-  const { XMLParser } = require("fast-xml-parser");
-  const xmlParser = new XMLParser({ processEntities: false });
+  const { ParseOption, XmlDocument } = await loadXmlRuntime();
+  // Network access is disabled and entity substitution is not enabled.
   // benchmark-node:cwe-776-safe
-  try { xmlParser.parse(input.slice(0, 256).replace(/<!ENTITY/giu, "")); } catch {}
+  let document;
+  try {
+    document = XmlDocument.fromString(input, { option: ParseOption.XML_PARSE_NONET });
+  } catch {}
+  finally { document?.dispose(); }
   done(ctx);
 }
 
@@ -109,5 +139,6 @@ module.exports = {
   hashSafe, hashVulnerable,
   randomnessSafe, randomnessVulnerable,
   resourceExhaustionSafe, resourceExhaustionVulnerable,
+  prepareDataRuntime: loadXmlRuntime,
   xxeSafe, xxeVulnerable,
 };

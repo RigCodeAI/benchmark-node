@@ -16,7 +16,16 @@ struct Truth {
     source_digests: BTreeMap<String, String>,
     categories: Vec<Category>,
     repositories: Vec<Repository>,
+    product_cases: Vec<TruthCase>,
+    controller_cases: Vec<TruthCase>,
     promotion_requirements: Requirements,
+}
+
+#[derive(Deserialize)]
+struct TruthCase {
+    case_id: String,
+    control: String,
+    reason_code: Option<String>,
 }
 
 #[derive(Deserialize)]
@@ -37,13 +46,14 @@ struct Requirements {
     minimum_held_out_applications: u64,
     minimum_held_out_vulnerable_categories: u64,
     minimum_held_out_safe_categories: u64,
+    required_held_out_framework_families: Vec<String>,
     required_publication_state: String,
     required_coverage_verdict: String,
     maximum_false_positives: u64,
     maximum_false_negatives: u64,
 }
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize)]
 struct Evidence {
     schema_version: String,
     suite_id: String,
@@ -64,13 +74,14 @@ struct Evidence {
     evidence_digest: String,
 }
 
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize)]
 struct Observation {
     case_id: String,
     disposition: String,
     evidence_grade: String,
     repository_path: String,
     sink_identity: String,
+    reason_code: Option<String>,
 }
 
 #[derive(Serialize)]
@@ -88,6 +99,7 @@ struct Report {
 
 #[derive(Default, Serialize)]
 struct Score {
+    status: String,
     tp: u64,
     fp: u64,
     #[serde(rename = "fn")]
@@ -96,6 +108,7 @@ struct Score {
     unknown_controls_passed: u64,
     unsupported_controls_passed: u64,
     evidence_grade_mismatches: u64,
+    reason_code_mismatches: u64,
     unresolved: u64,
     unexpected_observations: u64,
     passed: bool,
@@ -112,6 +125,7 @@ struct CategoryScore {
     fn_count: u64,
     tn: u64,
     evidence_grade_mismatches: u64,
+    reason_code_mismatches: u64,
     unresolved: u64,
     passed: bool,
 }
@@ -346,6 +360,7 @@ fn score(truth: &Truth, evidence: Evidence, held_out: &[Evidence]) -> Report {
             fn_count: 0,
             tn: 0,
             evidence_grade_mismatches: 0,
+            reason_code_mismatches: 0,
             unresolved: 0,
             passed: false,
         };
@@ -353,14 +368,21 @@ fn score(truth: &Truth, evidence: Evidence, held_out: &[Evidence]) -> Report {
             let case_id = format!("{}-{control}", category.category.to_ascii_lowercase());
             let actual = observed.get(case_id.as_str());
             let grade_ok = actual.is_some_and(|item| item.evidence_grade == grade);
+            let reason_ok = expected.get(&case_id).is_some_and(|item| {
+                item.reason_code.as_deref() == actual.and_then(|item| item.reason_code.as_deref())
+            });
             if actual.is_some() && !grade_ok {
                 score.evidence_grade_mismatches += 1;
                 row.evidence_grade_mismatches += 1;
             }
+            if actual.is_some() && !reason_ok {
+                score.reason_code_mismatches += 1;
+                row.reason_code_mismatches += 1;
+            }
             match (
                 control,
                 actual.map(|item| item.disposition.as_str()),
-                grade_ok,
+                grade_ok && reason_ok,
             ) {
                 ("vulnerable", Some("FINDING"), true) => {
                     score.tp += 1;
@@ -394,6 +416,7 @@ fn score(truth: &Truth, evidence: Evidence, held_out: &[Evidence]) -> Report {
             && row.fp == 0
             && row.fn_count == 0
             && row.evidence_grade_mismatches == 0
+            && row.reason_code_mismatches == 0
             && row.unresolved == 0;
         rows.push(row);
     }
@@ -410,7 +433,14 @@ fn score(truth: &Truth, evidence: Evidence, held_out: &[Evidence]) -> Report {
         && score.unknown_controls_passed == required
         && score.unsupported_controls_passed == required
         && score.evidence_grade_mismatches == 0
+        && score.reason_code_mismatches == 0
         && score.unresolved == 0;
+    score.status = if score.passed {
+        "COMPLETE"
+    } else {
+        "INCOMPLETE"
+    }
+    .to_owned();
     let envelope_closed = closed(&evidence, &truth.promotion_requirements);
     let held_out_passed = held_out_passed(truth, &expected, held_out);
     let promotion_eligible = score.passed && envelope_closed && held_out_passed;
@@ -450,7 +480,20 @@ fn controls(category: &Category) -> [(&'static str, &'static str, &str); 4] {
     ]
 }
 
-fn expected_cases(truth: &Truth) -> BTreeMap<String, (String, String)> {
+#[derive(Clone)]
+struct ExpectedCase {
+    disposition: String,
+    evidence_grade: String,
+    reason_code: Option<String>,
+}
+
+fn expected_cases(truth: &Truth) -> BTreeMap<String, ExpectedCase> {
+    let truth_cases = truth
+        .product_cases
+        .iter()
+        .chain(&truth.controller_cases)
+        .map(|case| (case.case_id.as_str(), case))
+        .collect::<BTreeMap<_, _>>();
     truth
         .categories
         .iter()
@@ -458,9 +501,24 @@ fn expected_cases(truth: &Truth) -> BTreeMap<String, (String, String)> {
             controls(category)
                 .into_iter()
                 .map(|(control, disposition, grade)| {
+                    let case_id = format!("{}-{control}", category.category.to_ascii_lowercase());
+                    let reason_code = if control == "unsupported" {
+                        Some("native_node_coordinate_not_qualified".to_owned())
+                    } else {
+                        truth_cases
+                            .get(case_id.as_str())
+                            .and_then(|case| {
+                                (case.control == control).then(|| case.reason_code.clone())
+                            })
+                            .flatten()
+                    };
                     (
-                        format!("{}-{control}", category.category.to_ascii_lowercase()),
-                        (disposition.to_owned(), grade.to_owned()),
+                        case_id,
+                        ExpectedCase {
+                            disposition: disposition.to_owned(),
+                            evidence_grade: grade.to_owned(),
+                            reason_code,
+                        },
                     )
                 })
         })
@@ -480,7 +538,7 @@ fn closed(evidence: &Evidence, requirements: &Requirements) -> bool {
 
 fn held_out_passed(
     truth: &Truth,
-    expected: &BTreeMap<String, (String, String)>,
+    expected: &BTreeMap<String, ExpectedCase>,
     evidence: &[Evidence],
 ) -> bool {
     let requirements = &truth.promotion_requirements;
@@ -489,14 +547,41 @@ fn held_out_passed(
     {
         return false;
     }
+    let repository_ids = evidence
+        .iter()
+        .map(|item| item.repository_id.as_str())
+        .collect::<BTreeSet<_>>();
+    let truth_digests = evidence
+        .iter()
+        .filter_map(|item| item.independent_truth_digest.as_deref())
+        .collect::<BTreeSet<_>>();
+    if repository_ids.len() != evidence.len() || truth_digests.len() != evidence.len() {
+        return false;
+    }
+    if requirements
+        .required_held_out_framework_families
+        .iter()
+        .any(|family| {
+            !evidence
+                .iter()
+                .any(|item| item.framework_coordinate.starts_with(family))
+        })
+    {
+        return false;
+    }
     let mut vulnerable = BTreeSet::new();
     let mut safe = BTreeSet::new();
     for item in evidence {
+        let mut application_vulnerable = false;
+        let mut application_safe = false;
         for observation in &item.observations {
-            let Some((disposition, grade)) = expected.get(&observation.case_id) else {
+            let Some(expected) = expected.get(&observation.case_id) else {
                 return false;
             };
-            if &observation.disposition != disposition || &observation.evidence_grade != grade {
+            if observation.disposition != expected.disposition
+                || observation.evidence_grade != expected.evidence_grade
+                || observation.reason_code != expected.reason_code
+            {
                 return false;
             }
             let category = observation
@@ -504,15 +589,20 @@ fn held_out_passed(
                 .rsplit_once('-')
                 .map(|value| value.0)
                 .unwrap_or("");
-            match disposition.as_str() {
+            match expected.disposition.as_str() {
                 "FINDING" => {
                     vulnerable.insert(category);
+                    application_vulnerable = true;
                 }
                 "CLEAN" => {
                     safe.insert(category);
+                    application_safe = true;
                 }
                 _ => {}
             }
+        }
+        if !application_vulnerable || !application_safe {
+            return false;
         }
     }
     vulnerable.len() as u64 >= requirements.minimum_held_out_vulnerable_categories
@@ -567,15 +657,7 @@ mod tests {
         truth
     }
 
-    #[test]
-    fn locked_truth_sources_are_digest_closed() {
-        let truth = loaded_truth();
-        assert!(!truth.source_digests.is_empty());
-    }
-
-    #[test]
-    fn complete_four_state_evidence_scores_the_closed_denominator() {
-        let truth = loaded_truth();
+    fn complete_evidence(truth: &Truth) -> Evidence {
         let observations = truth
             .categories
             .iter()
@@ -588,10 +670,16 @@ mod tests {
                         evidence_grade: grade.to_owned(),
                         repository_path: format!("src/{control}/{}.rs", category.category),
                         sink_identity: format!("{}-{control}", category.category),
+                        reason_code: expected_cases(truth)
+                            .get(&format!(
+                                "{}-{control}",
+                                category.category.to_ascii_lowercase()
+                            ))
+                            .and_then(|item| item.reason_code.clone()),
                     })
             })
             .collect();
-        let evidence = Evidence {
+        Evidence {
             schema_version: String::new(),
             suite_id: truth.suite_id.clone(),
             layer: "LOCKED".to_owned(),
@@ -615,7 +703,39 @@ mod tests {
             unresolved_obligations: 0,
             observations,
             evidence_digest: format!("sha256:{}", "a".repeat(64)),
-        };
+        }
+    }
+
+    fn held_out_evidence(
+        truth: &Truth,
+        repository_id: &str,
+        framework_coordinate: &str,
+        digest_byte: char,
+        all_categories: bool,
+    ) -> Evidence {
+        let mut evidence = complete_evidence(truth);
+        evidence.layer = "HELD_OUT".to_owned();
+        evidence.repository_id = repository_id.to_owned();
+        evidence.framework_coordinate = framework_coordinate.to_owned();
+        evidence.independent_truth_digest =
+            Some(format!("sha256:{}", digest_byte.to_string().repeat(64)));
+        evidence.observations.retain(|item| {
+            (item.case_id.ends_with("-vulnerable") || item.case_id.ends_with("-safe"))
+                && (all_categories || item.case_id.starts_with("cwe-113-"))
+        });
+        evidence
+    }
+
+    #[test]
+    fn locked_truth_sources_are_digest_closed() {
+        let truth = loaded_truth();
+        assert!(!truth.source_digests.is_empty());
+    }
+
+    #[test]
+    fn complete_four_state_evidence_scores_the_closed_denominator() {
+        let truth = loaded_truth();
+        let evidence = complete_evidence(&truth);
         let report = score(&truth, evidence, &[]);
         let categories = truth.categories.len() as u64;
         assert_eq!(
@@ -630,5 +750,58 @@ mod tests {
         assert!(report.score.passed);
         assert!(report.evidence_envelope_closed);
         assert!(!report.promotion_eligible);
+    }
+
+    #[test]
+    fn incorrect_capability_reason_prevents_qualification() {
+        let truth = loaded_truth();
+        let mut evidence = complete_evidence(&truth);
+        let unknown = evidence
+            .observations
+            .iter_mut()
+            .find(|item| item.case_id.ends_with("-unknown"))
+            .unwrap();
+        unknown.reason_code = Some("incorrect_reason".to_owned());
+
+        let report = score(&truth, evidence, &[]);
+
+        assert_eq!(report.score.reason_code_mismatches, 1);
+        assert!(!report.score.passed);
+        assert!(!report.promotion_eligible);
+    }
+
+    #[test]
+    fn promotion_requires_distinct_koa_nest_and_aurelia_held_out_evidence() {
+        let truth = loaded_truth();
+        let locked = complete_evidence(&truth);
+        let koa = held_out_evidence(&truth, "held-out-koa", "koa-3.2.1_router-15", '1', true);
+        let nest = held_out_evidence(&truth, "held-out-nest", "nestjs-11.2.1-express", '2', false);
+        let aurelia = held_out_evidence(
+            &truth,
+            "held-out-aurelia",
+            "aurelia-2.0.0-rc.2-koa-3.2.1",
+            '3',
+            false,
+        );
+
+        let report = score(&truth, locked.clone(), &[koa.clone(), nest, aurelia]);
+        assert!(report.held_out_applications_passed);
+        assert!(report.promotion_eligible);
+
+        let duplicate = score(&truth, locked.clone(), &[koa.clone(), koa.clone(), koa]);
+        assert!(!duplicate.held_out_applications_passed);
+        assert!(!duplicate.promotion_eligible);
+
+        let wrong_frameworks = score(
+            &truth,
+            locked,
+            &[
+                held_out_evidence(&truth, "held-out-koa-a", "koa-3.2.1_router-15", '4', true),
+                held_out_evidence(&truth, "held-out-koa-b", "koa-2.16.4_router-14", '5', false),
+                held_out_evidence(&truth, "held-out-nest", "nestjs-11.2.1-fastify", '6', false),
+            ],
+        );
+        assert!(!wrong_frameworks.held_out_applications_passed);
+        assert!(!wrong_frameworks.promotion_eligible);
     }
 }

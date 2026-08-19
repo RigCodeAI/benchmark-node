@@ -90,7 +90,7 @@ pub(super) struct ScannerRun {
 
 struct ScoreArguments {
     truth: PathBuf,
-    results: PathBuf,
+    results: Vec<PathBuf>,
     format: Option<String>,
     output_dir: PathBuf,
 }
@@ -115,7 +115,7 @@ pub fn command(
                 .is_some_and(|value| value == "--help" || value == "-h") =>
         {
             println!(
-                "Usage: {program} score-results --results PATH [--format json|sarif|csv] [--output-dir DIR] [--truth PATH]"
+                "Usage: {program} score-results --results PATH [--results PATH ...] [--format json|sarif|csv] [--output-dir DIR] [--truth PATH]"
             );
             Some(Ok(true))
         }
@@ -134,7 +134,7 @@ fn help(program: &str) -> Result<bool, String> {
     println!(
         "{program} — independent security benchmark scorer\n\n\
 Usage:\n  \
-{program} score-results --results PATH [--format json|sarif|csv] [--output-dir DIR]\n  \
+{program} score-results --results PATH [--results PATH ...] [--format json|sarif|csv] [--output-dir DIR]\n  \
 {program} score --evidence PATH [--held-out PATH] [--require-promotion]\n  \
 {program} catalog [--output-dir DIR] [--check]\n  \
 {program} verify\n\n\
@@ -149,7 +149,7 @@ fn score_results(arguments: &[String], program: &str, default_truth: &str) -> Re
     let truth: PublicTruth = read_json(&arguments.truth)?;
     validate_public_truth(&truth)?;
     let catalog = catalog::build(&truth);
-    let scanner = input::read(
+    let scanner = input::read_all(
         &arguments.results,
         arguments.format.as_deref(),
         &truth.suite_id,
@@ -180,17 +180,15 @@ fn parse_score_arguments(
 ) -> Result<ScoreArguments, String> {
     let mut values = arguments.iter();
     let mut truth = PathBuf::from(default_truth);
-    let mut results = None;
+    let mut results = Vec::new();
     let mut format = None;
     let mut output_dir = PathBuf::from("results/scorecard");
     while let Some(argument) = values.next() {
         match argument.as_str() {
             "--truth" => truth = PathBuf::from(values.next().ok_or("--truth requires PATH")?),
-            "--results" => {
-                results = Some(PathBuf::from(
-                    values.next().ok_or("--results requires PATH")?,
-                ))
-            }
+            "--results" => results.push(PathBuf::from(
+                values.next().ok_or("--results requires PATH")?,
+            )),
             "--format" => format = Some(values.next().ok_or("--format requires VALUE")?.clone()),
             "--output-dir" => {
                 output_dir = PathBuf::from(values.next().ok_or("--output-dir requires DIR")?)
@@ -201,7 +199,11 @@ fn parse_score_arguments(
     }
     Ok(ScoreArguments {
         truth,
-        results: results.ok_or("--results is required")?,
+        results: if results.is_empty() {
+            return Err("--results is required".to_owned());
+        } else {
+            results
+        },
         format,
         output_dir,
     })

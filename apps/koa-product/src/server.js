@@ -4,7 +4,7 @@ const Koa = require("koa");
 const Router = require("@koa/router");
 const { bodyMiddleware } = require("./body");
 const { registerControllerRoutes } = require("./controller");
-const { registerSemanticRoutes } = require("./semantics");
+const { prepareSemanticRuntime, registerSemanticRoutes } = require("./semantics");
 
 function createApp() {
   const app = new Koa();
@@ -29,9 +29,16 @@ function createApp() {
 
 if (require.main === module) {
   const port = Number(process.env.PORT ?? "3000");
-  createApp().listen(port, "127.0.0.1", () => {
-    process.stdout.write(`BenchmarkNode Koa application listening on http://127.0.0.1:${port}\n`);
-  });
+  prepareSemanticRuntime()
+    .then(() => {
+      createApp().listen(port, "127.0.0.1", () => {
+        process.stdout.write(`BenchmarkNode Koa application listening on http://127.0.0.1:${port}\n`);
+      });
+    })
+    .catch((error) => {
+      process.stderr.write(`BenchmarkNode initialization failed: ${String(error?.message || error)}\n`);
+      process.exitCode = 1;
+    });
 }
 
 module.exports = { createApp };

@@ -19,3 +19,17 @@ Qualification requires, as applicable:
 A tool that cannot produce these fields can still receive a complete public
 accuracy score. Missing assurance evidence never becomes a clean or promoted
 qualification result.
+
+## Capability-gap controls
+
+An expected `UNKNOWN` control does not claim that Rig sent a request to an
+`/unknown` route. It verifies a narrower product behavior: when the runtime or
+controller lacks the exact semantic capability named by the control, the signed
+`node-capability-controls.json` artifact must retain that gap with the exact
+reason code from `truth-v1.json`. The observation location
+`qualification/runtime-capability-contract#<category>` names that signed
+declaration; it is not application source code.
+
+This distinction prevents a declared limitation from being presented as an
+executed negative test. A real safe application behavior must instead produce a
+`CLEAN` observation backed by closed route and sink coverage.

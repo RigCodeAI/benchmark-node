@@ -147,23 +147,38 @@ fn match_case<'a>(
     catalog: &'a [CatalogEntry],
     finding: &super::NormalizedFinding,
 ) -> Option<&'a CatalogEntry> {
-    let mut candidates = catalog
+    let candidates = catalog
         .iter()
-        .filter(|case| case.category == finding.category);
+        .filter(|case| case.category == finding.category)
+        .collect::<Vec<_>>();
     if let Some(case_id) = finding.case_id.as_deref() {
-        return candidates.find(|case| case.case_id == case_id);
+        return candidates.into_iter().find(|case| case.case_id == case_id);
     }
     if let Some(route) = finding.route.as_deref() {
-        return candidates.find(|case| case.route.as_deref() == Some(route));
+        return candidates
+            .into_iter()
+            .find(|case| case.route.as_deref() == Some(route));
     }
     let path = finding.path.as_deref()?;
     if let Some(line) = finding.line {
-        if let Some(case) = candidates.find(|case| location_matches(case, path, line)) {
+        if let Some(case) = candidates
+            .iter()
+            .copied()
+            .find(|case| location_matches(case, path, line))
+        {
             return Some(case);
         }
     }
     let _rule_id = finding.rule_id.as_deref();
-    candidates.find(|case| path.contains(&case.case_id))
+    candidates.into_iter().find(|case| {
+        let expected_path = case
+            .sink_location
+            .split_once('#')
+            .map_or(case.sink_location.as_str(), |(path, _)| path);
+        path.ends_with(expected_path)
+            || expected_path.ends_with(path)
+            || path.contains(&case.case_id)
+    })
 }
 
 fn location_matches(case: &CatalogEntry, path: &str, line: u64) -> bool {

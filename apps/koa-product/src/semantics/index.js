@@ -16,6 +16,7 @@ const {
 const {
   deserializeSafe, deserializeVulnerable, entityExpansionSafe, entityExpansionVulnerable,
   hashSafe, hashVulnerable, randomnessSafe, randomnessVulnerable,
+  prepareDataRuntime,
   resourceExhaustionSafe, resourceExhaustionVulnerable, xxeSafe, xxeVulnerable,
 } = require("./data");
 const {
@@ -118,4 +119,8 @@ function registerSemanticRoutes(router) {
   router.post("/benchmark/node-vm-context-escape/safe", vmEscapeSafe);
 }
 
-module.exports = { handlers, registerSemanticRoutes };
+async function prepareSemanticRuntime() {
+  await prepareDataRuntime();
+}
+
+module.exports = { handlers, prepareSemanticRuntime, registerSemanticRoutes };

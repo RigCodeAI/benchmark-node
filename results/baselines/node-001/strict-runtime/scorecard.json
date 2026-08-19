@@ -1,0 +1,427 @@
+{
+  "schema_version": "security-benchmark-public-scorecard/v1",
+  "benchmark_id": "rig-benchmark-node-v1",
+  "scoring_scope": "VULNERABLE_AND_SAFE_CONTROLS",
+  "assurance_note": "UNKNOWN, UNSUPPORTED, evidence grades, closed coverage, and promotion are scored only by the qualification interface.",
+  "tool": {
+    "name": "IAST Native Runtime",
+    "version": "0.1.2",
+    "kind": "SARIF"
+  },
+  "summary": {
+    "tp": 37,
+    "fp": 0,
+    "fn": 3,
+    "tn": 40,
+    "tpr": 0.925,
+    "fpr": 0.0,
+    "balanced_accuracy": 0.9625,
+    "input_findings": 37,
+    "matched_findings": 37,
+    "duplicate_findings": 0,
+    "unscored_assurance_findings": 0,
+    "unmapped_findings": 0
+  },
+  "categories": [
+    {
+      "category": "CWE-113",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-116",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-1321",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-1336",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-200",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-201",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-22",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-284",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-287",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-306",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-328",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-330",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-352",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-362",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-400",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-501",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-502",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-532",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-601",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-611",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-614",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-639",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-643",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-776",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-78",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-79",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-840",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-841",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-862",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-863",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-89",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-90",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-918",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-94",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-943",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "NODE-EVENT-LOOP-STARVATION",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "NODE-PACKAGE-LIFECYCLE-SCRIPT",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "NODE-PROTOTYPE-POLLUTION",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "NODE-REGEX-ENGINE-DOS",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "NODE-VM-CONTEXT-ESCAPE",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    }
+  ]
+}

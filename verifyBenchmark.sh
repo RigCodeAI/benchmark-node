@@ -18,6 +18,7 @@ for directory in apps/koa-product apps/koa-source-breadth apps/koa2-coordinate a
   npm ci --ignore-scripts --no-audit --no-fund --prefix "$directory"
 done
 npm test --prefix apps/koa-product
+npm run verify:xml --prefix apps/koa-product
 npm run build --silent --prefix apps/nest10-express-coordinate
 npm run build --silent --prefix apps/nest10-fastify-coordinate
 npm run build --silent --prefix apps/nest-express-coordinate
@@ -25,6 +26,7 @@ npm run build --silent --prefix apps/nest-fastify-coordinate
 npm run build --silent --prefix apps/aurelia1-coordinate
 npm run build --silent --prefix apps/aurelia2-coordinate
 node scripts/smoke-applications.mjs
+./scripts/verify-node001-baselines.sh
 
 rm -f controls/lifecycle-script/vulnerable/LIFECYCLE_SCRIPT_EXECUTED
 for directory in controls/lifecycle-script/vulnerable controls/lifecycle-script/safe controls/lifecycle-script/unknown; do

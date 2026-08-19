@@ -21,8 +21,8 @@ const properties = {
   "CWE-306": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "authentication", "RIG.AUTHENTICATION.MISSING"],
   "CWE-328": ["ADAPTED", "RUNTIME_PROPERTY", "cryptography", "IAST.CRYPTO.WEAK_HASH"],
   "CWE-330": ["ADAPTED", "RUNTIME_PROPERTY", "randomness", "IAST.RANDOM.WEAK"],
-  "CWE-352": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "csrf", "RIG.CSRF.MISSING"],
-  "CWE-362": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "concurrency", "RIG.CONCURRENCY.RACE"],
+  "CWE-352": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "csrf", "RIG.CSRF.MISSING_OR_INVALID"],
+  "CWE-362": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "concurrency", "RIG.CONCURRENCY.RACE_CONDITION"],
   "CWE-400": ["ADAPTED", "RUNTIME_EFFECT", "resource_exhaustion", "IAST.REGEX.REDOS"],
   "CWE-501": ["DIRECT", "RUNTIME_VALUE_FLOW", "trust_boundary", "IAST.TRUST_BOUNDARY.VIOLATION"],
   "CWE-502": ["ADAPTED", "RUNTIME_SEMANTIC", "deserialization", "IAST.DESERIALIZATION.UNSAFE"],
@@ -30,13 +30,13 @@ const properties = {
   "CWE-601": ["DIRECT", "RUNTIME_SEMANTIC", "redirect", "IAST.REDIRECT.UNVALIDATED"],
   "CWE-611": ["ADAPTED", "RUNTIME_EFFECT", "xml", "IAST.XML.EXTERNAL_ENTITY"],
   "CWE-614": ["DIRECT", "RUNTIME_PROPERTY", "cookie", "IAST.COOKIE.INSECURE"],
-  "CWE-639": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "tenant_isolation", "RIG.TENANT.ISOLATION"],
+  "CWE-639": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "tenant_isolation", "RIG.AUTHORIZATION.CROSS_TENANT"],
   "CWE-643": ["ADAPTED", "RUNTIME_SEMANTIC", "xml_query", "IAST.XPATH.INJECTION"],
   "CWE-776": ["ADAPTED", "RUNTIME_EFFECT", "xml", "IAST.XML.ENTITY_EXPANSION"],
   "CWE-78": ["DIRECT", "RUNTIME_SEMANTIC", "process", "IAST.COMMAND.INJECTION"],
   "CWE-79": ["DIRECT", "RUNTIME_SEMANTIC", "html_output", "IAST.XSS.OUTPUT_CONTEXT"],
-  "CWE-840": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "workflow", "RIG.WORKFLOW.LIMIT_BYPASS"],
-  "CWE-841": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "multi_service", "RIG.MULTI_SERVICE.STATE_BYPASS"],
+  "CWE-840": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "workflow", "RIG.BUSINESS_LOGIC.LIMIT_BYPASS"],
+  "CWE-841": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "multi_service", "RIG.MULTI_SERVICE.FORBIDDEN_INTERACTION"],
   "CWE-862": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "access_control", "RIG.AUTHORIZATION.MISSING"],
   "CWE-863": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "access_control", "RIG.AUTHORIZATION.INCORRECT"],
   "CWE-89": ["DIRECT", "RUNTIME_SEMANTIC", "sql", "IAST.SQL.INJECTION"],
@@ -45,7 +45,7 @@ const properties = {
   "CWE-94": ["DIRECT", "RUNTIME_EFFECT", "code_execution", "IAST.CODE.INJECTION"],
   "CWE-943": ["ADAPTED", "RUNTIME_SEMANTIC", "document_query", "IAST.NOSQL.INJECTION"],
   "CWE-1321": ["ADAPTED", "RUNTIME_SEMANTIC", "object_merge", "IAST.NODE.PROTOTYPE_POLLUTION"],
-  "NODE-EVENT-LOOP-STARVATION": ["ADAPTED", "RUNTIME_EFFECT", "event_loop", "IAST.NODE.EVENT_LOOP_STARVATION"],
+  "NODE-EVENT-LOOP-STARVATION": ["ADAPTED", "RUNTIME_EFFECT", "event_loop", "IAST.RESOURCE.EXHAUSTION"],
   "NODE-PACKAGE-LIFECYCLE-SCRIPT": ["ADAPTED", "BUILD_PROVENANCE", "package_lifecycle", "IAST.NODE.PACKAGE_LIFECYCLE_SCRIPT"],
   "NODE-PROTOTYPE-POLLUTION": ["ADAPTED", "RUNTIME_SEMANTIC", "object_path", "IAST.NODE.PROTOTYPE_POLLUTION_PATH"],
   "NODE-REGEX-ENGINE-DOS": ["ADAPTED", "RUNTIME_EFFECT", "regex", "IAST.NODE.REGEX_ENGINE_DOS"],
@@ -57,7 +57,7 @@ const supportPolicy = {
   language: "javascript-typescript",
   state: "QUALIFICATION",
   runtime_family: "node-v8-supported-22-26",
-  runtime_coordinates: ["node-22.23.2", "node-24.19.0", "node-26.7.0"],
+  runtime_coordinates: ["node-22.17.1", "node-22.23.2", "node-24.19.0", "node-26.7.0"],
   framework_coordinates: [
     "koa-2.16.4_router-14", "koa-3.2.1_router-15", "nestjs-10.4.22-express",
     "nestjs-10.4.22-fastify", "nestjs-11.2.1-express", "nestjs-11.2.1-fastify",
@@ -108,20 +108,28 @@ for (const category of categories) {
       detail.report = controllerReport(category);
       if (control !== "unknown") detail.route = controllerRoute(category, control);
       detail.source_location = control === "unknown"
-        ? "apps/koa-product/.rig.json"
+        ? "qualification/runtime-capability-contract"
         : `apps/koa-product/.rig.json#${category.toLowerCase()}-${control}`;
-      detail.sink_location = controllerLocation(category);
+      detail.sink_location = control === "unknown"
+        ? `qualification/runtime-capability-contract#${category}`
+        : controllerLocation(category);
       if (control !== "unknown") detail.test_id = `${category.toLowerCase()}-${control}`;
       if (control === "unknown") detail.reason_code = `declared_${category.toLowerCase()}_policy_required`;
       if (control === "vulnerable") detail.rule_id = rule;
       controllerCases.push(detail);
     } else {
-      if (!packageControl.has(category)) detail.route = `/benchmark/${category.toLowerCase()}/${control}`;
+      if (!packageControl.has(category) && control !== "unknown") {
+        detail.route = `/benchmark/${category.toLowerCase()}/${control}`;
+      }
       detail.sink_family = sink;
-      detail.source_location = packageControl.has(category)
+      detail.source_location = control === "unknown"
+        ? "qualification/runtime-capability-contract"
+        : packageControl.has(category)
         ? `controls/lifecycle-script/${control}/package.json`
         : detail.route;
-      detail.sink_location = packageControl.has(category)
+      detail.sink_location = control === "unknown"
+        ? `qualification/runtime-capability-contract#${category}`
+        : packageControl.has(category)
         ? `controls/lifecycle-script/${control}/package.json#${control === "safe" ? "scripts" : "scripts.postinstall"}`
         : markedLocation(detail.case_id, `${semanticFile(category)}#${sink}`);
       if (control === "vulnerable") detail.rule_id = rule;
@@ -175,6 +183,7 @@ const truth = {
     minimum_held_out_applications: 3,
     minimum_held_out_vulnerable_categories: categories.length,
     minimum_held_out_safe_categories: categories.length,
+    required_held_out_framework_families: ["koa-", "nestjs-", "aurelia-"],
     maximum_corpus_execution_ms: 5000,
     maximum_source_files: 20000,
     maximum_source_file_bytes: 4194304,

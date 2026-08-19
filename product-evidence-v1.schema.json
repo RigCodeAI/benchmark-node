@@ -35,7 +35,7 @@
     "observation": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["case_id", "disposition", "evidence_grade", "repository_path", "sink_identity"],
+      "required": ["case_id", "disposition", "evidence_grade", "repository_path", "sink_identity", "reason_code"],
       "properties": {
         "case_id": {"type": "string", "minLength": 1},
         "disposition": {"enum": ["FINDING", "CLEAN", "UNKNOWN", "UNSUPPORTED"]},
@@ -46,7 +46,8 @@
           "UNSUPPORTED_COORDINATE"
         ]},
         "repository_path": {"type": "string", "minLength": 1},
-        "sink_identity": {"type": "string", "minLength": 1}
+        "sink_identity": {"type": "string", "minLength": 1},
+        "reason_code": {"type": ["string", "null"], "minLength": 1}
       }
     }
   }

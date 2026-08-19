@@ -2,7 +2,7 @@
 
 ## Locked coordinates
 
-- Node.js 22.23.2, 24.19.0, and 26.7.0;
+- Node.js 22.17.1, 22.23.2, 24.19.0, and 26.7.0;
 - Koa 2.16.4 and 3.2.1 with `@koa/router` 14 and 15;
 - CommonJS and native ESM;
 - NestJS 10.4.22 and 11.2.1 with Express and Fastify;
@@ -37,3 +37,12 @@ Runtime categories require observed value flow, semantics, properties, or effect
 Authorization and stateful behavior require differential controller journeys.
 Unknown semantics remain capability gaps. Unsupported coordinates remain explicit
 and block a clean qualification result.
+
+## Promotion proof
+
+The public Koa application is category-complete. Framework integration fixtures
+exercise Koa 2/3, CommonJS/ESM, NestJS 10/11 with Express/Fastify, and Aurelia
+1/2. Rig's product CI runs the category denominator on every locked Node runtime
+and the framework matrix separately. Promotion then requires independently
+governed Koa, NestJS, and Aurelia evidence as described in
+[qualification.md](qualification.md).

@@ -5,6 +5,7 @@
   "support_policy": "support-policy-v1.json",
   "exact_family": {
     "runtime_coordinates": [
+      "node-22.17.1",
       "node-22.23.2",
       "node-24.19.0",
       "node-26.7.0"
@@ -43,8 +44,8 @@
     "apps/aurelia2-coordinate/server.js": "sha256:053ed8461764d40d5e3841c06c7902d75ad4ba856fd6559108c59420542b826d",
     "apps/aurelia2-coordinate/src/frontend.js": "sha256:04e27d52d6a6479461eb532e6456ec4b0e1bdc527bf7ccfdfaa4f56054cd8a22",
     "apps/koa-product/.rig.json": "sha256:1e99d5e6217ac9335f29c3ea0ecc06f24c456844dda99f59f1e71e2ee439e6ae",
-    "apps/koa-product/package-lock.json": "sha256:a6c338cb031eba6cea32461382b17f83d7d926b6c733260d1e6283407de7ca6f",
-    "apps/koa-product/package.json": "sha256:02104824ae79436888ce3351f391a1e3000ac55b180a29bcd6473cc53608ff2d",
+    "apps/koa-product/package-lock.json": "sha256:784acedf861b3c01c5a51e7ae60a37a771f1a752ed5b82f898eeec30dbc208f7",
+    "apps/koa-product/package.json": "sha256:b7d69890d611ec1ff3a22459bbdef39ba8fa2a1ea67b22fff8f55fcacc18359e",
     "apps/koa-product/src/body.js": "sha256:da59666cef150ec7799378f40b147cd30e14e6eb97c376bf27d258f3f95467f2",
     "apps/koa-product/src/controller/access.js": "sha256:0afb4d7d84f79602bd2b448e7adc296f7f6b6883765d279da799cee09d9fe678",
     "apps/koa-product/src/controller/concurrency.js": "sha256:c5560ba5c3bdfe756d0423cfb4461159ac613f52ff2d561aeb055791835f5142",
@@ -52,13 +53,13 @@
     "apps/koa-product/src/controller/service.js": "sha256:f0882dc7accfa946a163adb8cb515d61422b670c7b89f19f9980933005b95dd8",
     "apps/koa-product/src/controller/workflow.js": "sha256:8df4f230508261e37da7c9d8fd42e516e2463b43552555a1b55fcdda5bb9a9cc",
     "apps/koa-product/src/fixtures/public.txt": "sha256:2422b664f6bd4bd43365696433fb987bce55320458c1ad6960d51f1fe74178dc",
-    "apps/koa-product/src/semantics/data.js": "sha256:be28a25bfa64695504bd36ac04ce680e9946e40669c9e83d96f553bd2ad1462e",
+    "apps/koa-product/src/semantics/data.js": "sha256:fdee2d8b3bc5e287001357f9e92db350c2715bdfe7fadd631f6975098796ee63",
     "apps/koa-product/src/semantics/helpers.js": "sha256:836fc7441f59fd5499bc9493f329bc42fd267d050d4cc42fe0e311c8e799b0d9",
-    "apps/koa-product/src/semantics/index.js": "sha256:f41a379196a650ea286788a12b4200f7ce873c9c4382149e256015c0136e9627",
+    "apps/koa-product/src/semantics/index.js": "sha256:a79719827b222a2336b103e9ce2cd895d747991cce6e47c971039cebfeff01c2",
     "apps/koa-product/src/semantics/injection.js": "sha256:ea081b3f7b021452d06175968232e5a1b8b6ccb36eb3bcaeb6076f56222f7c92",
     "apps/koa-product/src/semantics/node.js": "sha256:cb4eebfde650cafef12f1de900db1eb332d3cfa659811f7eaea202baa94117e8",
     "apps/koa-product/src/semantics/output.js": "sha256:c76ba26996b491a7c9834d748d599d15cafc741af86ff2663d74dd4b86fc72fd",
-    "apps/koa-product/src/server.js": "sha256:6b3d38ddfc4b1aa21bff53479167cc24cab6b20d08311ebfe549fae6bf522247",
+    "apps/koa-product/src/server.js": "sha256:ff628a6f8d1c75c071c9f0250d08a10d6d914548abebbb348ebe27446c518446",
     "apps/koa-product/test/application.test.js": "sha256:225a1b57928f46725a0dbc75a6266c551b93d946d6ae1eaee249d657bb384711",
     "apps/koa-source-breadth/package-lock.json": "sha256:b049e1a61437e3966819729249d7b34f09bf2c8e1152beed9960c283725617c0",
     "apps/koa-source-breadth/package.json": "sha256:2c7bb8b9d746ca7e09b97f783f459155e5a1f6e714cb83e2502176d4e72e3c18",
@@ -114,9 +115,9 @@
     "corpus/language/src/corpus.mjs": "sha256:a38313330459832b01284a6f6478f36f9905db58ef4332d4217c1094b5775fbf",
     "corpus/language/src/main.mjs": "sha256:305db47cbb70dbf79c4fbc4ec65530fa44fd19e6ffb4c5c4fd6a459fba75a57b",
     "corpus/language/test/corpus.test.mjs": "sha256:eb017bff23a023d951f8275d9d72d79e559c929f1204c815923d2aeac16c8884",
-    "product-evidence-v1.schema.json": "sha256:9c24d12e88975b44d4c0ee96d2f511b7679f39406114f2fcc7a465d92ba9e61f",
-    "qualification-report-v2.schema.json": "sha256:de135ccb63a66b5e027c84e18a66107c8c06f3c418b285c3e187effe461aaf83",
-    "support-policy-v1.json": "sha256:816667ff3d9496d2e76693d68aa3c57af7cfcb91df3efda5a679201264e7343a"
+    "product-evidence-v1.schema.json": "sha256:79253102a11308702160c8931bceb804ee5c287edb6f5d05446f317f5c7d9782",
+    "qualification-report-v2.schema.json": "sha256:eb8cab931f64efb9edcd2b6a30d33565a290646bc139c3b25625e16aa2673e88",
+    "support-policy-v1.json": "sha256:bac2fb705a2cdf6f44eac003df5c0b1685007284a48744f7e5c11ec03761f7c1"
   },
   "repositories": [
     {
@@ -415,6 +416,11 @@
     "minimum_held_out_applications": 3,
     "minimum_held_out_vulnerable_categories": 40,
     "minimum_held_out_safe_categories": 40,
+    "required_held_out_framework_families": [
+      "koa-",
+      "nestjs-",
+      "aurelia-"
+    ],
     "maximum_corpus_execution_ms": 5000,
     "maximum_source_files": 20000,
     "maximum_source_file_bytes": 4194304,
@@ -448,10 +454,9 @@
       "case_id": "cwe-113-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-113/unknown",
       "sink_family": "http_response",
-      "source_location": "/benchmark/cwe-113/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#http_response",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-113",
       "reason_code": "node_cwe_113_semantic_coordinate_unresolved"
     },
     {
@@ -477,10 +482,9 @@
       "case_id": "cwe-116-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-116/unknown",
       "sink_family": "output_encoding",
-      "source_location": "/benchmark/cwe-116/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#output_encoding",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-116",
       "reason_code": "node_cwe_116_semantic_coordinate_unresolved"
     },
     {
@@ -506,10 +510,9 @@
       "case_id": "cwe-1321-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-1321/unknown",
       "sink_family": "object_merge",
-      "source_location": "/benchmark/cwe-1321/unknown",
-      "sink_location": "apps/koa-product/src/semantics/node.js#object_merge",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-1321",
       "reason_code": "node_cwe_1321_semantic_coordinate_unresolved"
     },
     {
@@ -535,10 +538,9 @@
       "case_id": "cwe-1336-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-1336/unknown",
       "sink_family": "template",
-      "source_location": "/benchmark/cwe-1336/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#template",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-1336",
       "reason_code": "node_cwe_1336_semantic_coordinate_unresolved"
     },
     {
@@ -564,10 +566,9 @@
       "case_id": "cwe-200-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-200/unknown",
       "sink_family": "sensitive_data",
-      "source_location": "/benchmark/cwe-200/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#sensitive_data",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-200",
       "reason_code": "node_cwe_200_semantic_coordinate_unresolved"
     },
     {
@@ -593,10 +594,9 @@
       "case_id": "cwe-201-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-201/unknown",
       "sink_family": "sensitive_data",
-      "source_location": "/benchmark/cwe-201/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#sensitive_data",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-201",
       "reason_code": "node_cwe_201_semantic_coordinate_unresolved"
     },
     {
@@ -622,10 +622,9 @@
       "case_id": "cwe-22-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-22/unknown",
       "sink_family": "filesystem",
-      "source_location": "/benchmark/cwe-22/unknown",
-      "sink_location": "apps/koa-product/src/semantics/injection.js#filesystem",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-22",
       "reason_code": "node_cwe_22_semantic_coordinate_unresolved"
     },
     {
@@ -635,7 +634,7 @@
       "route": "/benchmark/cwe-328/vulnerable",
       "sink_family": "cryptography",
       "source_location": "/benchmark/cwe-328/vulnerable",
-      "sink_location": "apps/koa-product/src/semantics/data.js:14",
+      "sink_location": "apps/koa-product/src/semantics/data.js:28",
       "rule_id": "IAST.CRYPTO.WEAK_HASH"
     },
     {
@@ -645,16 +644,15 @@
       "route": "/benchmark/cwe-328/safe",
       "sink_family": "cryptography",
       "source_location": "/benchmark/cwe-328/safe",
-      "sink_location": "apps/koa-product/src/semantics/data.js:21"
+      "sink_location": "apps/koa-product/src/semantics/data.js:35"
     },
     {
       "case_id": "cwe-328-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-328/unknown",
       "sink_family": "cryptography",
-      "source_location": "/benchmark/cwe-328/unknown",
-      "sink_location": "apps/koa-product/src/semantics/data.js#cryptography",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-328",
       "reason_code": "node_cwe_328_semantic_coordinate_unresolved"
     },
     {
@@ -664,7 +662,7 @@
       "route": "/benchmark/cwe-330/vulnerable",
       "sink_family": "randomness",
       "source_location": "/benchmark/cwe-330/vulnerable",
-      "sink_location": "apps/koa-product/src/semantics/data.js:28",
+      "sink_location": "apps/koa-product/src/semantics/data.js:42",
       "rule_id": "IAST.RANDOM.WEAK"
     },
     {
@@ -674,16 +672,15 @@
       "route": "/benchmark/cwe-330/safe",
       "sink_family": "randomness",
       "source_location": "/benchmark/cwe-330/safe",
-      "sink_location": "apps/koa-product/src/semantics/data.js:34"
+      "sink_location": "apps/koa-product/src/semantics/data.js:48"
     },
     {
       "case_id": "cwe-330-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-330/unknown",
       "sink_family": "randomness",
-      "source_location": "/benchmark/cwe-330/unknown",
-      "sink_location": "apps/koa-product/src/semantics/data.js#randomness",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-330",
       "reason_code": "node_cwe_330_semantic_coordinate_unresolved"
     },
     {
@@ -693,7 +690,7 @@
       "route": "/benchmark/cwe-400/vulnerable",
       "sink_family": "resource_exhaustion",
       "source_location": "/benchmark/cwe-400/vulnerable",
-      "sink_location": "apps/koa-product/src/semantics/data.js:95",
+      "sink_location": "apps/koa-product/src/semantics/data.js:125",
       "rule_id": "IAST.REGEX.REDOS"
     },
     {
@@ -703,16 +700,15 @@
       "route": "/benchmark/cwe-400/safe",
       "sink_family": "resource_exhaustion",
       "source_location": "/benchmark/cwe-400/safe",
-      "sink_location": "apps/koa-product/src/semantics/data.js:102"
+      "sink_location": "apps/koa-product/src/semantics/data.js:132"
     },
     {
       "case_id": "cwe-400-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-400/unknown",
       "sink_family": "resource_exhaustion",
-      "source_location": "/benchmark/cwe-400/unknown",
-      "sink_location": "apps/koa-product/src/semantics/data.js#resource_exhaustion",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-400",
       "reason_code": "node_cwe_400_semantic_coordinate_unresolved"
     },
     {
@@ -738,10 +734,9 @@
       "case_id": "cwe-501-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-501/unknown",
       "sink_family": "trust_boundary",
-      "source_location": "/benchmark/cwe-501/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#trust_boundary",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-501",
       "reason_code": "node_cwe_501_semantic_coordinate_unresolved"
     },
     {
@@ -751,7 +746,7 @@
       "route": "/benchmark/cwe-502/vulnerable",
       "sink_family": "deserialization",
       "source_location": "/benchmark/cwe-502/vulnerable",
-      "sink_location": "apps/koa-product/src/semantics/data.js:40",
+      "sink_location": "apps/koa-product/src/semantics/data.js:54",
       "rule_id": "IAST.DESERIALIZATION.UNSAFE"
     },
     {
@@ -761,16 +756,15 @@
       "route": "/benchmark/cwe-502/safe",
       "sink_family": "deserialization",
       "source_location": "/benchmark/cwe-502/safe",
-      "sink_location": "apps/koa-product/src/semantics/data.js:48"
+      "sink_location": "apps/koa-product/src/semantics/data.js:62"
     },
     {
       "case_id": "cwe-502-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-502/unknown",
       "sink_family": "deserialization",
-      "source_location": "/benchmark/cwe-502/unknown",
-      "sink_location": "apps/koa-product/src/semantics/data.js#deserialization",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-502",
       "reason_code": "node_cwe_502_semantic_coordinate_unresolved"
     },
     {
@@ -796,10 +790,9 @@
       "case_id": "cwe-532-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-532/unknown",
       "sink_family": "logging",
-      "source_location": "/benchmark/cwe-532/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#logging",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-532",
       "reason_code": "node_cwe_532_semantic_coordinate_unresolved"
     },
     {
@@ -825,10 +818,9 @@
       "case_id": "cwe-601-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-601/unknown",
       "sink_family": "redirect",
-      "source_location": "/benchmark/cwe-601/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#redirect",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-601",
       "reason_code": "node_cwe_601_semantic_coordinate_unresolved"
     },
     {
@@ -838,7 +830,7 @@
       "route": "/benchmark/cwe-611/vulnerable",
       "sink_family": "xml",
       "source_location": "/benchmark/cwe-611/vulnerable",
-      "sink_location": "apps/koa-product/src/semantics/data.js:57",
+      "sink_location": "apps/koa-product/src/semantics/data.js:71",
       "rule_id": "IAST.XML.EXTERNAL_ENTITY"
     },
     {
@@ -848,16 +840,15 @@
       "route": "/benchmark/cwe-611/safe",
       "sink_family": "xml",
       "source_location": "/benchmark/cwe-611/safe",
-      "sink_location": "apps/koa-product/src/semantics/data.js:70"
+      "sink_location": "apps/koa-product/src/semantics/data.js:84"
     },
     {
       "case_id": "cwe-611-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-611/unknown",
       "sink_family": "xml",
-      "source_location": "/benchmark/cwe-611/unknown",
-      "sink_location": "apps/koa-product/src/semantics/data.js#xml",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-611",
       "reason_code": "node_cwe_611_semantic_coordinate_unresolved"
     },
     {
@@ -883,10 +874,9 @@
       "case_id": "cwe-614-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-614/unknown",
       "sink_family": "cookie",
-      "source_location": "/benchmark/cwe-614/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#cookie",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-614",
       "reason_code": "node_cwe_614_semantic_coordinate_unresolved"
     },
     {
@@ -912,10 +902,9 @@
       "case_id": "cwe-643-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-643/unknown",
       "sink_family": "xml_query",
-      "source_location": "/benchmark/cwe-643/unknown",
-      "sink_location": "apps/koa-product/src/semantics/injection.js#xml_query",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-643",
       "reason_code": "node_cwe_643_semantic_coordinate_unresolved"
     },
     {
@@ -925,7 +914,7 @@
       "route": "/benchmark/cwe-776/vulnerable",
       "sink_family": "xml",
       "source_location": "/benchmark/cwe-776/vulnerable",
-      "sink_location": "apps/koa-product/src/semantics/data.js:79",
+      "sink_location": "apps/koa-product/src/semantics/data.js:99",
       "rule_id": "IAST.XML.ENTITY_EXPANSION"
     },
     {
@@ -935,16 +924,15 @@
       "route": "/benchmark/cwe-776/safe",
       "sink_family": "xml",
       "source_location": "/benchmark/cwe-776/safe",
-      "sink_location": "apps/koa-product/src/semantics/data.js:88"
+      "sink_location": "apps/koa-product/src/semantics/data.js:114"
     },
     {
       "case_id": "cwe-776-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-776/unknown",
       "sink_family": "xml",
-      "source_location": "/benchmark/cwe-776/unknown",
-      "sink_location": "apps/koa-product/src/semantics/data.js#xml",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-776",
       "reason_code": "node_cwe_776_semantic_coordinate_unresolved"
     },
     {
@@ -970,10 +958,9 @@
       "case_id": "cwe-78-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-78/unknown",
       "sink_family": "process",
-      "source_location": "/benchmark/cwe-78/unknown",
-      "sink_location": "apps/koa-product/src/semantics/injection.js#process",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-78",
       "reason_code": "node_cwe_78_semantic_coordinate_unresolved"
     },
     {
@@ -999,10 +986,9 @@
       "case_id": "cwe-79-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-79/unknown",
       "sink_family": "html_output",
-      "source_location": "/benchmark/cwe-79/unknown",
-      "sink_location": "apps/koa-product/src/semantics/output.js#html_output",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-79",
       "reason_code": "node_cwe_79_semantic_coordinate_unresolved"
     },
     {
@@ -1028,10 +1014,9 @@
       "case_id": "cwe-89-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-89/unknown",
       "sink_family": "sql",
-      "source_location": "/benchmark/cwe-89/unknown",
-      "sink_location": "apps/koa-product/src/semantics/injection.js#sql",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-89",
       "reason_code": "node_cwe_89_semantic_coordinate_unresolved"
     },
     {
@@ -1057,10 +1042,9 @@
       "case_id": "cwe-90-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-90/unknown",
       "sink_family": "directory_query",
-      "source_location": "/benchmark/cwe-90/unknown",
-      "sink_location": "apps/koa-product/src/semantics/injection.js#directory_query",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-90",
       "reason_code": "node_cwe_90_semantic_coordinate_unresolved"
     },
     {
@@ -1086,10 +1070,9 @@
       "case_id": "cwe-918-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-918/unknown",
       "sink_family": "outbound_http",
-      "source_location": "/benchmark/cwe-918/unknown",
-      "sink_location": "apps/koa-product/src/semantics/injection.js#outbound_http",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-918",
       "reason_code": "node_cwe_918_semantic_coordinate_unresolved"
     },
     {
@@ -1115,10 +1098,9 @@
       "case_id": "cwe-94-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-94/unknown",
       "sink_family": "code_execution",
-      "source_location": "/benchmark/cwe-94/unknown",
-      "sink_location": "apps/koa-product/src/semantics/injection.js#code_execution",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-94",
       "reason_code": "node_cwe_94_semantic_coordinate_unresolved"
     },
     {
@@ -1144,10 +1126,9 @@
       "case_id": "cwe-943-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/cwe-943/unknown",
       "sink_family": "document_query",
-      "source_location": "/benchmark/cwe-943/unknown",
-      "sink_location": "apps/koa-product/src/semantics/injection.js#document_query",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-943",
       "reason_code": "node_cwe_943_semantic_coordinate_unresolved"
     },
     {
@@ -1158,7 +1139,7 @@
       "sink_family": "event_loop",
       "source_location": "/benchmark/node-event-loop-starvation/vulnerable",
       "sink_location": "apps/koa-product/src/semantics/node.js:48",
-      "rule_id": "IAST.NODE.EVENT_LOOP_STARVATION"
+      "rule_id": "IAST.RESOURCE.EXHAUSTION"
     },
     {
       "case_id": "node-event-loop-starvation-safe",
@@ -1173,10 +1154,9 @@
       "case_id": "node-event-loop-starvation-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/node-event-loop-starvation/unknown",
       "sink_family": "event_loop",
-      "source_location": "/benchmark/node-event-loop-starvation/unknown",
-      "sink_location": "apps/koa-product/src/semantics/node.js#event_loop",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#NODE-EVENT-LOOP-STARVATION",
       "reason_code": "node_node_event_loop_starvation_semantic_coordinate_unresolved"
     },
     {
@@ -1201,8 +1181,8 @@
       "repository_id": "lifecycle-unknown",
       "control": "unknown",
       "sink_family": "package_lifecycle",
-      "source_location": "controls/lifecycle-script/unknown/package.json",
-      "sink_location": "controls/lifecycle-script/unknown/package.json#scripts.postinstall",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#NODE-PACKAGE-LIFECYCLE-SCRIPT",
       "reason_code": "node_node_package_lifecycle_script_semantic_coordinate_unresolved"
     },
     {
@@ -1228,10 +1208,9 @@
       "case_id": "node-prototype-pollution-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/node-prototype-pollution/unknown",
       "sink_family": "object_path",
-      "source_location": "/benchmark/node-prototype-pollution/unknown",
-      "sink_location": "apps/koa-product/src/semantics/node.js#object_path",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#NODE-PROTOTYPE-POLLUTION",
       "reason_code": "node_node_prototype_pollution_semantic_coordinate_unresolved"
     },
     {
@@ -1257,10 +1236,9 @@
       "case_id": "node-regex-engine-dos-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/node-regex-engine-dos/unknown",
       "sink_family": "regex",
-      "source_location": "/benchmark/node-regex-engine-dos/unknown",
-      "sink_location": "apps/koa-product/src/semantics/node.js#regex",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#NODE-REGEX-ENGINE-DOS",
       "reason_code": "node_node_regex_engine_dos_semantic_coordinate_unresolved"
     },
     {
@@ -1286,10 +1264,9 @@
       "case_id": "node-vm-context-escape-unknown",
       "repository_id": "koa-product",
       "control": "unknown",
-      "route": "/benchmark/node-vm-context-escape/unknown",
       "sink_family": "vm",
-      "source_location": "/benchmark/node-vm-context-escape/unknown",
-      "sink_location": "apps/koa-product/src/semantics/node.js#vm",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#NODE-VM-CONTEXT-ESCAPE",
       "reason_code": "node_node_vm_context_escape_semantic_coordinate_unresolved"
     }
   ],
@@ -1320,8 +1297,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "ACCESS_CONTROL",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/access.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-284",
       "reason_code": "declared_cwe-284_policy_required"
     },
     {
@@ -1350,8 +1327,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "ACCESS_CONTROL",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/access.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-287",
       "reason_code": "declared_cwe-287_policy_required"
     },
     {
@@ -1380,8 +1357,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "ACCESS_CONTROL",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/access.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-306",
       "reason_code": "declared_cwe-306_policy_required"
     },
     {
@@ -1393,7 +1370,7 @@
       "source_location": "apps/koa-product/.rig.json#cwe-352-vulnerable",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-352-vulnerable",
-      "rule_id": "RIG.CSRF.MISSING"
+      "rule_id": "RIG.CSRF.MISSING_OR_INVALID"
     },
     {
       "case_id": "cwe-352-safe",
@@ -1410,8 +1387,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "ACCESS_CONTROL",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/access.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-352",
       "reason_code": "declared_cwe-352_policy_required"
     },
     {
@@ -1423,7 +1400,7 @@
       "source_location": "apps/koa-product/.rig.json#cwe-362-vulnerable",
       "sink_location": "apps/koa-product/src/controller/concurrency.js",
       "test_id": "cwe-362-vulnerable",
-      "rule_id": "RIG.CONCURRENCY.RACE"
+      "rule_id": "RIG.CONCURRENCY.RACE_CONDITION"
     },
     {
       "case_id": "cwe-362-safe",
@@ -1440,8 +1417,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "CONCURRENCY",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/concurrency.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-362",
       "reason_code": "declared_cwe-362_policy_required"
     },
     {
@@ -1453,7 +1430,7 @@
       "source_location": "apps/koa-product/.rig.json#cwe-639-vulnerable",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-639-vulnerable",
-      "rule_id": "RIG.TENANT.ISOLATION"
+      "rule_id": "RIG.AUTHORIZATION.CROSS_TENANT"
     },
     {
       "case_id": "cwe-639-safe",
@@ -1470,8 +1447,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "ACCESS_CONTROL",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/access.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-639",
       "reason_code": "declared_cwe-639_policy_required"
     },
     {
@@ -1483,7 +1460,7 @@
       "source_location": "apps/koa-product/.rig.json#cwe-840-vulnerable",
       "sink_location": "apps/koa-product/src/controller/workflow.js",
       "test_id": "cwe-840-vulnerable",
-      "rule_id": "RIG.WORKFLOW.LIMIT_BYPASS"
+      "rule_id": "RIG.BUSINESS_LOGIC.LIMIT_BYPASS"
     },
     {
       "case_id": "cwe-840-safe",
@@ -1500,8 +1477,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "BUSINESS_LOGIC",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/workflow.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-840",
       "reason_code": "declared_cwe-840_policy_required"
     },
     {
@@ -1513,7 +1490,7 @@
       "source_location": "apps/koa-product/.rig.json#cwe-841-vulnerable",
       "sink_location": "apps/koa-product/src/controller/service.js",
       "test_id": "cwe-841-vulnerable",
-      "rule_id": "RIG.MULTI_SERVICE.STATE_BYPASS"
+      "rule_id": "RIG.MULTI_SERVICE.FORBIDDEN_INTERACTION"
     },
     {
       "case_id": "cwe-841-safe",
@@ -1530,8 +1507,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "MULTI_SERVICE",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/service.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-841",
       "reason_code": "declared_cwe-841_policy_required"
     },
     {
@@ -1560,8 +1537,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "ACCESS_CONTROL",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/access.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-862",
       "reason_code": "declared_cwe-862_policy_required"
     },
     {
@@ -1590,8 +1567,8 @@
       "repository_id": "koa-product",
       "control": "unknown",
       "report": "ACCESS_CONTROL",
-      "source_location": "apps/koa-product/.rig.json",
-      "sink_location": "apps/koa-product/src/controller/access.js",
+      "source_location": "qualification/runtime-capability-contract",
+      "sink_location": "qualification/runtime-capability-contract#CWE-863",
       "reason_code": "declared_cwe-863_policy_required"
     }
   ]

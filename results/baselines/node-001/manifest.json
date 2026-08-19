@@ -1,0 +1,105 @@
+{
+  "schema_version": "benchmark-node-baseline-manifest/v1",
+  "baseline_id": "NODE-001",
+  "benchmark_id": "rig-benchmark-node-v1",
+  "recorded_on": "2026-08-19",
+  "truth_sha256": "2158d7a08222d28f1b0788774e5d4e38f37a233626c1c34eeebcc15709995dee",
+  "support_policy_sha256": "816667ff3d9496d2e76693d68aa3c57af7cfcb91df3efda5a679201264e7343a",
+  "capture_environment": {
+    "operating_system": "macOS 26.6.1 arm64",
+    "node": "22.17.1",
+    "npm": "10.9.2",
+    "rustc": "1.91.1",
+    "rig_binary_sha256": "637bffb244113da5a6cd0be715699b7df18c83f1a3dc1bb68f36b6f97353c5c5"
+  },
+  "source_revisions_at_capture": {
+    "benchmark_node": "18ac1d32143ac10c3e5a498a5e16dffd21ef745e",
+    "orchestrator": "c63fe60e102542b91903af76bcc79f2c655531cb",
+    "runtime_engine": "108222ba7bc25be6a3f15b8a0f2e4f62a59e01f4"
+  },
+  "source_state_note": "The captured product binary included uncommitted Node implementation work. Its binary digest and the preserved scanner submissions identify the exact tested artifacts; the listed Git revisions identify their starting source revisions.",
+  "fresh_reproduction": {
+    "verified_on": "2026-08-19",
+    "strict_runtime": {
+      "planned_requests": 162,
+      "attempted_requests": 162,
+      "sealed_transcripts": 18,
+      "coverage_verdict": "COMPLETE",
+      "tp": 37,
+      "fp": 0,
+      "fn": 3,
+      "tn": 40
+    },
+    "lifecycle_only": {
+      "finding_count": 1,
+      "category_tp": 1,
+      "category_fp": 0,
+      "category_fn": 0,
+      "category_tn": 1
+    },
+    "permissive_xml": {
+      "verification": "preserved_submission_replay",
+      "tp": 39,
+      "fp": 2,
+      "fn": 1,
+      "tn": 40
+    }
+  },
+  "scenarios": [
+    {
+      "id": "strict-runtime",
+      "description": "The strict Koa runtime result requiring observed XML effects.",
+      "scanner_results": "strict-runtime/scanner-results.sarif",
+      "expected_summary": {
+        "tp": 37,
+        "fp": 0,
+        "fn": 3,
+        "tn": 40,
+        "input_findings": 37,
+        "matched_findings": 37,
+        "unmapped_findings": 0
+      },
+      "expected_categories": {
+        "CWE-611": { "tp": 0, "fp": 0, "fn": 1, "tn": 1 },
+        "CWE-776": { "tp": 0, "fp": 0, "fn": 1, "tn": 1 },
+        "NODE-PACKAGE-LIFECYCLE-SCRIPT": { "tp": 0, "fp": 0, "fn": 1, "tn": 1 }
+      }
+    },
+    {
+      "id": "lifecycle-only",
+      "description": "The non-executing repository-build scan that detects the expected package lifecycle script.",
+      "scanner_results": "lifecycle-only/scanner-results.sarif",
+      "expected_summary": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 39,
+        "tn": 40,
+        "input_findings": 1,
+        "matched_findings": 1,
+        "unmapped_findings": 0
+      },
+      "expected_categories": {
+        "NODE-PACKAGE-LIFECYCLE-SCRIPT": { "tp": 1, "fp": 0, "fn": 0, "tn": 1 }
+      }
+    },
+    {
+      "id": "permissive-xml",
+      "description": "A diagnostic result that classified source-dependent XML parser calls without requiring the final runtime effect.",
+      "scanner_results": "permissive-xml/scanner-results.sarif",
+      "expected_summary": {
+        "tp": 39,
+        "fp": 2,
+        "fn": 1,
+        "tn": 40,
+        "input_findings": 41,
+        "matched_findings": 39,
+        "unmapped_findings": 2
+      },
+      "expected_categories": {
+        "CWE-611": { "tp": 1, "fp": 0, "fn": 0, "tn": 1 },
+        "CWE-776": { "tp": 1, "fp": 0, "fn": 0, "tn": 1 },
+        "NODE-PACKAGE-LIFECYCLE-SCRIPT": { "tp": 0, "fp": 0, "fn": 1, "tn": 1 }
+      }
+    }
+  ]
+}

@@ -4,6 +4,7 @@
   "state": "QUALIFICATION",
   "runtime_family": "node-v8-supported-22-26",
   "runtime_coordinates": [
+    "node-22.17.1",
     "node-22.23.2",
     "node-24.19.0",
     "node-26.7.0"

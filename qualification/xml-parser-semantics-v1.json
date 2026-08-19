@@ -1,0 +1,47 @@
+{
+  "schema_version": "benchmark-node-xml-parser-semantics/v1",
+  "coordinates": {
+    "fast_xml_parser": "5.11.0",
+    "libxml2_wasm": "0.7.1"
+  },
+  "fast_xml_parser": {
+    "external_entities": {
+      "process_entities_true": "REJECTED",
+      "process_entities_false": "REJECTED"
+    },
+    "simple_internal_entity": {
+      "process_entities_true": "EXPANDED",
+      "process_entities_false": "PRESERVED"
+    },
+    "nested_entity_expansion": {
+      "process_entities_true": "NOT_EXPANDED",
+      "process_entities_false": "NOT_EXPANDED"
+    },
+    "qualification_use": "NOT_USED_FOR_CWE_611_OR_CWE_776"
+  },
+  "libxml2_wasm": {
+    "external_entity": {
+      "vulnerable_options": [
+        "XML_PARSE_NOENT"
+      ],
+      "vulnerable_result": "FILE_CONTENT_SUBSTITUTED",
+      "safe_options": [
+        "XML_PARSE_NOENT",
+        "XML_PARSE_NO_XXE"
+      ],
+      "safe_result": "EXTERNAL_RESOURCE_BLOCKED"
+    },
+    "nested_entity_expansion": {
+      "vulnerable_options": [
+        "XML_PARSE_NOENT",
+        "XML_PARSE_NONET"
+      ],
+      "vulnerable_result": "NESTED_ENTITIES_EXPANDED",
+      "safe_options": [
+        "XML_PARSE_NONET"
+      ],
+      "safe_result": "ENTITY_REFERENCE_PRESERVED"
+    },
+    "qualification_use": "EXACT_COORDINATE"
+  }
+}
