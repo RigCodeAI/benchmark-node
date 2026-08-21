@@ -1,134 +1,18 @@
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Path, PathBuf};
 
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use serde_json::Value;
 use sha2::{Digest as _, Sha256};
 
+mod model;
 mod public;
 
+#[cfg(test)]
+use model::Observation;
+use model::{Category, CategoryScore, Evidence, Report, Requirements, Score, Truth};
+
 const MAX_INPUT_BYTES: u64 = 64 * 1024 * 1024;
-
-#[derive(Deserialize)]
-struct Truth {
-    suite_id: String,
-    exact_family: Value,
-    source_digests: BTreeMap<String, String>,
-    categories: Vec<Category>,
-    repositories: Vec<Repository>,
-    product_cases: Vec<TruthCase>,
-    controller_cases: Vec<TruthCase>,
-    promotion_requirements: Requirements,
-}
-
-#[derive(Deserialize)]
-struct TruthCase {
-    case_id: String,
-    control: String,
-    reason_code: Option<String>,
-}
-
-#[derive(Deserialize)]
-struct Category {
-    category: String,
-    mapping: String,
-    required_evidence_grade: String,
-}
-
-#[derive(Deserialize)]
-struct Repository {
-    repository_id: String,
-    role: String,
-}
-
-#[derive(Deserialize)]
-struct Requirements {
-    minimum_held_out_applications: u64,
-    minimum_held_out_vulnerable_categories: u64,
-    minimum_held_out_safe_categories: u64,
-    required_held_out_framework_families: Vec<String>,
-    required_publication_state: String,
-    required_coverage_verdict: String,
-    maximum_false_positives: u64,
-    maximum_false_negatives: u64,
-}
-
-#[derive(Clone, Deserialize)]
-struct Evidence {
-    schema_version: String,
-    suite_id: String,
-    layer: String,
-    repository_id: String,
-    independent_truth_digest: Option<String>,
-    runtime_coordinate: String,
-    framework_coordinate: String,
-    ordinary_product_path: bool,
-    publication_state: String,
-    coverage_verdict: String,
-    sealed_transcripts_verified: bool,
-    authenticated_readback_verified: bool,
-    failed_requests: u64,
-    unexpected_facts: u64,
-    unresolved_obligations: u64,
-    observations: Vec<Observation>,
-    evidence_digest: String,
-}
-
-#[derive(Clone, Deserialize)]
-struct Observation {
-    case_id: String,
-    disposition: String,
-    evidence_grade: String,
-    repository_path: String,
-    sink_identity: String,
-    reason_code: Option<String>,
-}
-
-#[derive(Serialize)]
-struct Report {
-    schema_version: &'static str,
-    suite_id: String,
-    evidence_digest: String,
-    evidence_envelope_closed: bool,
-    held_out_applications_passed: bool,
-    promotion_eligible: bool,
-    score: Score,
-    category_scores: Vec<CategoryScore>,
-    reason_codes: Vec<String>,
-}
-
-#[derive(Default, Serialize)]
-struct Score {
-    status: String,
-    tp: u64,
-    fp: u64,
-    #[serde(rename = "fn")]
-    fn_count: u64,
-    tn: u64,
-    unknown_controls_passed: u64,
-    unsupported_controls_passed: u64,
-    evidence_grade_mismatches: u64,
-    reason_code_mismatches: u64,
-    unresolved: u64,
-    unexpected_observations: u64,
-    passed: bool,
-}
-
-#[derive(Serialize)]
-struct CategoryScore {
-    category: String,
-    mapping: String,
-    required_evidence_grade: String,
-    tp: u64,
-    fp: u64,
-    #[serde(rename = "fn")]
-    fn_count: u64,
-    tn: u64,
-    evidence_grade_mismatches: u64,
-    reason_code_mismatches: u64,
-    unresolved: u64,
-    passed: bool,
-}
 
 struct Arguments {
     truth: PathBuf,

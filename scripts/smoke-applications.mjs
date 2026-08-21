@@ -1,4 +1,6 @@
 import { spawn } from "node:child_process";
+import { once } from "node:events";
+import { createServer } from "node:net";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -16,8 +18,8 @@ const applications = [
   ["aurelia2", "/evaluate?input=1%2B1"],
 ];
 
-let port = 33100;
 for (const [application, route] of applications) {
+  const port = await availablePort();
   const child = spawn("./runBenchmark.sh", [application], {
     cwd: root,
     detached: true,
@@ -33,10 +35,41 @@ for (const [application, route] of applications) {
   } catch (error) {
     throw new Error(`${application}: ${error.message}\n${errors}`);
   } finally {
-    try { process.kill(-child.pid, "SIGTERM"); } catch {}
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await terminate(child);
   }
-  port += 1;
+}
+
+async function availablePort() {
+  const server = createServer();
+  server.unref();
+  await new Promise((resolve, reject) => {
+    server.once("error", reject);
+    server.listen(0, "127.0.0.1", resolve);
+  });
+  const address = server.address();
+  if (address === null || typeof address === "string") {
+    server.close();
+    throw new Error("operating system did not allocate a TCP port");
+  }
+  await new Promise((resolve, reject) => {
+    server.close((error) => error ? reject(error) : resolve());
+  });
+  return address.port;
+}
+
+async function terminate(child) {
+  if (child.exitCode !== null || child.signalCode !== null) return;
+  try { process.kill(-child.pid, "SIGTERM"); } catch {}
+  await Promise.race([
+    once(child, "exit"),
+    new Promise((resolve) => setTimeout(resolve, 1_000)),
+  ]);
+  if (child.exitCode !== null || child.signalCode !== null) return;
+  try { process.kill(-child.pid, "SIGKILL"); } catch {}
+  await Promise.race([
+    once(child, "exit"),
+    new Promise((resolve) => setTimeout(resolve, 1_000)),
+  ]);
 }
 
 async function verifySourceBreadth(port) {
