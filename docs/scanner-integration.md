@@ -18,7 +18,7 @@ in `cases/expected-results.csv`; it does not guess based only on a CWE.
 ```json
 {
   "schema_version": "security-benchmark-scanner-results/v1",
-  "benchmark_id": "rig-benchmark-node-v1",
+  "benchmark_id": "sivere-benchmark-node-v1",
   "tool": { "name": "ExampleScanner", "version": "1.0", "kind": "SAST" },
   "findings": [
     { "category": "CWE-89", "case_id": "cwe-89-vulnerable" }

@@ -11,7 +11,7 @@ function reset(ctx, kind) {
 }
 
 async function claim(ctx, kind) {
-  if (ctx.get("x-rig-concurrency") !== "release") {
+  if (ctx.get("x-sivere-concurrency") !== "release") {
     ctx.status = 409;
     ctx.body = { claimed: false };
     return;

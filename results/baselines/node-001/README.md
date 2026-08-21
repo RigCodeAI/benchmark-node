@@ -14,7 +14,7 @@ single passing category is `NODE-PACKAGE-LIFECYCLE-SCRIPT`, at `1/0/0/1`. It
 records the build-provenance slice that still needs to be aggregated with the
 application scan.
 
-The permissive XML result is a diagnostic negative control, not a supported Rig
+The permissive XML result is a diagnostic negative control, not a supported Sivere
 mode. It is replayable from the preserved real SARIF submission so the known-bad
 behavior remains measurable without adding a product option that weakens XML
 evidence requirements.
@@ -33,18 +33,18 @@ CSV, and HTML byte-for-byte, and checks the expected counts in `manifest.json`.
 
 ## Run the current product paths again
 
-Build Rig first, then run the capture helper:
+Build Sivere first, then run the capture helper:
 
 ```bash
 cd ../ZeroSurface-rig/orchestrator
-cargo build --locked --bin rig
+cargo build --locked --bin sivere
 
 cd ../../benchmark-node
-RIG_BIN="../ZeroSurface-rig/orchestrator/target/debug/rig" \
+SIVERE_BIN="../ZeroSurface-rig/orchestrator/target/debug/sivere" \
   ./scripts/reproduce-node001-product-paths.sh
 ```
 
-The helper sets the debug-only `RIG_TEST_BYPASS_SCAN_AUTH=1` qualification
+The helper sets the debug-only `SIVERE_TEST_BYPASS_SCAN_AUTH=1` qualification
 contract. Release binaries deliberately ignore that variable and require a real
 short-lived scan lease.
 

@@ -2,13 +2,13 @@
 set -eu
 
 ROOT=$(CDPATH='' cd -- "$(dirname -- "$0")/.." && pwd)
-RIG_BIN=${RIG_BIN:-"$ROOT/../ZeroSurface-rig/orchestrator/target/debug/rig"}
+SIVERE_BIN=${SIVERE_BIN:-"$ROOT/../ZeroSurface-rig/orchestrator/target/debug/sivere"}
 TEMP_ROOT=${TMPDIR:-/tmp}
 OUTPUT_PARENT=${OUTPUT_PARENT:-$(mktemp -d "$TEMP_ROOT/benchmark-node-node001.XXXXXX")}
 
-if [ ! -x "$RIG_BIN" ]; then
-  echo "Rig binary is not executable: $RIG_BIN" >&2
-  echo "Build it with: cargo build --locked --bin rig" >&2
+if [ ! -x "$SIVERE_BIN" ]; then
+  echo "Sivere binary is not executable: $SIVERE_BIN" >&2
+  echo "Build it with: cargo build --locked --bin sivere" >&2
   exit 2
 fi
 
@@ -16,11 +16,11 @@ run_product() {
   expected_status=$1
   shift
   set +e
-  RIG_TEST_BYPASS_SCAN_AUTH=1 "$RIG_BIN" "$@"
+  SIVERE_TEST_BYPASS_SCAN_AUTH=1 "$SIVERE_BIN" "$@"
   status=$?
   set -e
   if [ "$status" -ne "$expected_status" ]; then
-    echo "expected Rig exit $expected_status, received $status" >&2
+    echo "expected Sivere exit $expected_status, received $status" >&2
     exit 3
   fi
 }

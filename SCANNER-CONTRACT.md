@@ -6,7 +6,7 @@ BenchmarkNode exposes two separate contracts.
 
 Any scanner may submit SARIF 2.1.0, JSON, or CSV. A finding must identify a
 category and at least one stable case identity: case ID, route, or case-bearing
-source location. No Rig-specific data is required.
+source location. No Sivere-specific data is required.
 
 ```bash
 ./scoreBenchmark.sh --results results/my-tool.sarif --output-dir results/my-tool

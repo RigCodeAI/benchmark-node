@@ -1,6 +1,6 @@
 {
-  "schema_version": "rig-benchmark-node-truth/v1",
-  "suite_id": "rig-benchmark-node-v1",
+  "schema_version": "sivere-benchmark-node-truth/v1",
+  "suite_id": "sivere-benchmark-node-v1",
   "suite_state": "QUALIFICATION",
   "support_policy": "support-policy-v1.json",
   "exact_family": {
@@ -43,14 +43,14 @@
     "apps/aurelia2-coordinate/package.json": "sha256:50143e98010b85879f6a0b600865e56199d16d95adc54d12fbb83f18a37e5db2",
     "apps/aurelia2-coordinate/server.js": "sha256:053ed8461764d40d5e3841c06c7902d75ad4ba856fd6559108c59420542b826d",
     "apps/aurelia2-coordinate/src/frontend.js": "sha256:04e27d52d6a6479461eb532e6456ec4b0e1bdc527bf7ccfdfaa4f56054cd8a22",
-    "apps/koa-product/.rig.json": "sha256:1e99d5e6217ac9335f29c3ea0ecc06f24c456844dda99f59f1e71e2ee439e6ae",
+    "apps/koa-product/.sivere.json": "sha256:94e339765b043139f3a3f60eb957d9ea2cb107882646d85572ae5e324f070240",
     "apps/koa-product/package-lock.json": "sha256:784acedf861b3c01c5a51e7ae60a37a771f1a752ed5b82f898eeec30dbc208f7",
     "apps/koa-product/package.json": "sha256:b7d69890d611ec1ff3a22459bbdef39ba8fa2a1ea67b22fff8f55fcacc18359e",
     "apps/koa-product/src/body.js": "sha256:da59666cef150ec7799378f40b147cd30e14e6eb97c376bf27d258f3f95467f2",
-    "apps/koa-product/src/controller/access.js": "sha256:0afb4d7d84f79602bd2b448e7adc296f7f6b6883765d279da799cee09d9fe678",
-    "apps/koa-product/src/controller/concurrency.js": "sha256:c5560ba5c3bdfe756d0423cfb4461159ac613f52ff2d561aeb055791835f5142",
+    "apps/koa-product/src/controller/access.js": "sha256:b83fe1bf1cb523e1aacf7690f62b74a991177d842d8cfa91c218a5dda6057031",
+    "apps/koa-product/src/controller/concurrency.js": "sha256:e116f260d085a0999482d5814652200c40a76a91a8a7154e2cf67ff70aca3cfd",
     "apps/koa-product/src/controller/index.js": "sha256:e0199b52f6fa3d03aec1752a7da5c769fd5570a25ad8b2b0455bc2093cd27cfb",
-    "apps/koa-product/src/controller/service.js": "sha256:f0882dc7accfa946a163adb8cb515d61422b670c7b89f19f9980933005b95dd8",
+    "apps/koa-product/src/controller/service.js": "sha256:507e1c7a07eb6211a2930115ce68d6b532d2cd2555793cf158f8ac04ed76cfa7",
     "apps/koa-product/src/controller/workflow.js": "sha256:8df4f230508261e37da7c9d8fd42e516e2463b43552555a1b55fcdda5bb9a9cc",
     "apps/koa-product/src/fixtures/public.txt": "sha256:2422b664f6bd4bd43365696433fb987bce55320458c1ad6960d51f1fe74178dc",
     "apps/koa-product/src/semantics/data.js": "sha256:fdee2d8b3bc5e287001357f9e92db350c2715bdfe7fadd631f6975098796ee63",
@@ -115,9 +115,9 @@
     "corpus/language/src/corpus.mjs": "sha256:a38313330459832b01284a6f6478f36f9905db58ef4332d4217c1094b5775fbf",
     "corpus/language/src/main.mjs": "sha256:305db47cbb70dbf79c4fbc4ec65530fa44fd19e6ffb4c5c4fd6a459fba75a57b",
     "corpus/language/test/corpus.test.mjs": "sha256:eb017bff23a023d951f8275d9d72d79e559c929f1204c815923d2aeac16c8884",
-    "product-evidence-v1.schema.json": "sha256:79253102a11308702160c8931bceb804ee5c287edb6f5d05446f317f5c7d9782",
-    "qualification-report-v2.schema.json": "sha256:eb8cab931f64efb9edcd2b6a30d33565a290646bc139c3b25625e16aa2673e88",
-    "support-policy-v1.json": "sha256:bac2fb705a2cdf6f44eac003df5c0b1685007284a48744f7e5c11ec03761f7c1"
+    "product-evidence-v1.schema.json": "sha256:31bbcb256bb7f627d368e899ad3e43379a278506b600332eb92c7b70269b322f",
+    "qualification-report-v2.schema.json": "sha256:3e5d3ce5a8f975253de7ec178db0ef6190ffe9c55fc102b67ec279765a50df5a",
+    "support-policy-v1.json": "sha256:76a4d3e61992050b4cb118abb3c717348391e2429b99803b81f10f8f9ad00b3b"
   },
   "repositories": [
     {
@@ -1277,10 +1277,10 @@
       "control": "vulnerable",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-284/vulnerable",
-      "source_location": "apps/koa-product/.rig.json#cwe-284-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-284-vulnerable",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-284-vulnerable",
-      "rule_id": "RIG.ACCESS_CONTROL.IMPROPER"
+      "rule_id": "SIVERE.ACCESS_CONTROL.IMPROPER"
     },
     {
       "case_id": "cwe-284-safe",
@@ -1288,7 +1288,7 @@
       "control": "safe",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-284/safe",
-      "source_location": "apps/koa-product/.rig.json#cwe-284-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-284-safe",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-284-safe"
     },
@@ -1307,10 +1307,10 @@
       "control": "vulnerable",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-287/vulnerable",
-      "source_location": "apps/koa-product/.rig.json#cwe-287-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-287-vulnerable",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-287-vulnerable",
-      "rule_id": "RIG.AUTHENTICATION.IMPROPER"
+      "rule_id": "SIVERE.AUTHENTICATION.IMPROPER"
     },
     {
       "case_id": "cwe-287-safe",
@@ -1318,7 +1318,7 @@
       "control": "safe",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-287/safe",
-      "source_location": "apps/koa-product/.rig.json#cwe-287-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-287-safe",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-287-safe"
     },
@@ -1337,10 +1337,10 @@
       "control": "vulnerable",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-306/vulnerable",
-      "source_location": "apps/koa-product/.rig.json#cwe-306-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-306-vulnerable",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-306-vulnerable",
-      "rule_id": "RIG.AUTHENTICATION.MISSING"
+      "rule_id": "SIVERE.AUTHENTICATION.MISSING"
     },
     {
       "case_id": "cwe-306-safe",
@@ -1348,7 +1348,7 @@
       "control": "safe",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-306/safe",
-      "source_location": "apps/koa-product/.rig.json#cwe-306-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-306-safe",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-306-safe"
     },
@@ -1367,10 +1367,10 @@
       "control": "vulnerable",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-352/vulnerable",
-      "source_location": "apps/koa-product/.rig.json#cwe-352-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-352-vulnerable",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-352-vulnerable",
-      "rule_id": "RIG.CSRF.MISSING_OR_INVALID"
+      "rule_id": "SIVERE.CSRF.MISSING_OR_INVALID"
     },
     {
       "case_id": "cwe-352-safe",
@@ -1378,7 +1378,7 @@
       "control": "safe",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-352/safe",
-      "source_location": "apps/koa-product/.rig.json#cwe-352-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-352-safe",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-352-safe"
     },
@@ -1397,10 +1397,10 @@
       "control": "vulnerable",
       "report": "CONCURRENCY",
       "route": "/controller/race/vulnerable/claim",
-      "source_location": "apps/koa-product/.rig.json#cwe-362-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-362-vulnerable",
       "sink_location": "apps/koa-product/src/controller/concurrency.js",
       "test_id": "cwe-362-vulnerable",
-      "rule_id": "RIG.CONCURRENCY.RACE_CONDITION"
+      "rule_id": "SIVERE.CONCURRENCY.RACE_CONDITION"
     },
     {
       "case_id": "cwe-362-safe",
@@ -1408,7 +1408,7 @@
       "control": "safe",
       "report": "CONCURRENCY",
       "route": "/controller/race/safe/claim",
-      "source_location": "apps/koa-product/.rig.json#cwe-362-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-362-safe",
       "sink_location": "apps/koa-product/src/controller/concurrency.js",
       "test_id": "cwe-362-safe"
     },
@@ -1427,10 +1427,10 @@
       "control": "vulnerable",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-639/vulnerable",
-      "source_location": "apps/koa-product/.rig.json#cwe-639-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-639-vulnerable",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-639-vulnerable",
-      "rule_id": "RIG.AUTHORIZATION.CROSS_TENANT"
+      "rule_id": "SIVERE.AUTHORIZATION.CROSS_TENANT"
     },
     {
       "case_id": "cwe-639-safe",
@@ -1438,7 +1438,7 @@
       "control": "safe",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-639/safe",
-      "source_location": "apps/koa-product/.rig.json#cwe-639-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-639-safe",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-639-safe"
     },
@@ -1457,10 +1457,10 @@
       "control": "vulnerable",
       "report": "BUSINESS_LOGIC",
       "route": "/controller/workflow/vulnerable/execute",
-      "source_location": "apps/koa-product/.rig.json#cwe-840-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-840-vulnerable",
       "sink_location": "apps/koa-product/src/controller/workflow.js",
       "test_id": "cwe-840-vulnerable",
-      "rule_id": "RIG.BUSINESS_LOGIC.LIMIT_BYPASS"
+      "rule_id": "SIVERE.BUSINESS_LOGIC.LIMIT_BYPASS"
     },
     {
       "case_id": "cwe-840-safe",
@@ -1468,7 +1468,7 @@
       "control": "safe",
       "report": "BUSINESS_LOGIC",
       "route": "/controller/workflow/safe/execute",
-      "source_location": "apps/koa-product/.rig.json#cwe-840-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-840-safe",
       "sink_location": "apps/koa-product/src/controller/workflow.js",
       "test_id": "cwe-840-safe"
     },
@@ -1487,10 +1487,10 @@
       "control": "vulnerable",
       "report": "MULTI_SERVICE",
       "route": "/controller/service/vulnerable",
-      "source_location": "apps/koa-product/.rig.json#cwe-841-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-841-vulnerable",
       "sink_location": "apps/koa-product/src/controller/service.js",
       "test_id": "cwe-841-vulnerable",
-      "rule_id": "RIG.MULTI_SERVICE.FORBIDDEN_INTERACTION"
+      "rule_id": "SIVERE.MULTI_SERVICE.FORBIDDEN_INTERACTION"
     },
     {
       "case_id": "cwe-841-safe",
@@ -1498,7 +1498,7 @@
       "control": "safe",
       "report": "MULTI_SERVICE",
       "route": "/controller/service/safe",
-      "source_location": "apps/koa-product/.rig.json#cwe-841-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-841-safe",
       "sink_location": "apps/koa-product/src/controller/service.js",
       "test_id": "cwe-841-safe"
     },
@@ -1517,10 +1517,10 @@
       "control": "vulnerable",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-862/vulnerable",
-      "source_location": "apps/koa-product/.rig.json#cwe-862-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-862-vulnerable",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-862-vulnerable",
-      "rule_id": "RIG.AUTHORIZATION.MISSING"
+      "rule_id": "SIVERE.AUTHORIZATION.MISSING"
     },
     {
       "case_id": "cwe-862-safe",
@@ -1528,7 +1528,7 @@
       "control": "safe",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-862/safe",
-      "source_location": "apps/koa-product/.rig.json#cwe-862-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-862-safe",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-862-safe"
     },
@@ -1547,10 +1547,10 @@
       "control": "vulnerable",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-863/vulnerable",
-      "source_location": "apps/koa-product/.rig.json#cwe-863-vulnerable",
+      "source_location": "apps/koa-product/.sivere.json#cwe-863-vulnerable",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-863-vulnerable",
-      "rule_id": "RIG.AUTHORIZATION.INCORRECT"
+      "rule_id": "SIVERE.AUTHORIZATION.INCORRECT"
     },
     {
       "case_id": "cwe-863-safe",
@@ -1558,7 +1558,7 @@
       "control": "safe",
       "report": "ACCESS_CONTROL",
       "route": "/controller/cwe-863/safe",
-      "source_location": "apps/koa-product/.rig.json#cwe-863-safe",
+      "source_location": "apps/koa-product/.sivere.json#cwe-863-safe",
       "sink_location": "apps/koa-product/src/controller/access.js",
       "test_id": "cwe-863-safe"
     },

@@ -14,7 +14,7 @@ The benchmark currently contains **40 categories and 160 controls**:
 The public score uses only vulnerable and safe controls, so SAST, DAST, IAST,
 and hybrid tools can all participate. The optional qualification score also
 checks evidence quality, closed coverage, exact coordinates, and fail-closed
-behavior. A scanner does not need to implement Rig's evidence protocol to get
+behavior. A scanner does not need to implement Sivere's evidence protocol to get
 an accuracy score.
 
 > **Safety warning:** these applications are intentionally vulnerable. Run them
