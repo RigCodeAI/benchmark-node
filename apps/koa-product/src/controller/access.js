@@ -10,7 +10,7 @@ const users = new Map([
 ]);
 
 function currentUser(ctx) {
-  const session = sessions.get(ctx.cookies.get("rig_session"));
+  const session = sessions.get(ctx.cookies.get("sivere_session"));
   if (session) return session;
   const authorization = ctx.get("authorization");
   if (authorization) return authorization === "Bearer invalid" ? null : sessions.get(authorization.slice(7));
@@ -28,13 +28,13 @@ async function login(ctx) {
   }
   const token = crypto.randomUUID();
   sessions.set(token, { username, ...account });
-  ctx.cookies.set("rig_session", token, { httpOnly: true, sameSite: "lax" });
+  ctx.cookies.set("sivere_session", token, { httpOnly: true, sameSite: "lax" });
   ctx.body = { authenticated: true };
 }
 
 function csrfToken(ctx) {
   const token = crypto.randomUUID();
-  ctx.cookies.set("rig_csrf", token, { httpOnly: false, sameSite: "lax" });
+  ctx.cookies.set("sivere_csrf", token, { httpOnly: false, sameSite: "lax" });
   ctx.body = { csrf: token };
 }
 
@@ -70,7 +70,7 @@ function access(ctx, category, control) {
     return allow(ctx);
   }
   if (category === "CWE-352") {
-    const csrfMatches = ctx.get("x-csrf-token") && ctx.get("x-csrf-token") === ctx.cookies.get("rig_csrf");
+    const csrfMatches = ctx.get("x-csrf-token") && ctx.get("x-csrf-token") === ctx.cookies.get("sivere_csrf");
     if (control === "safe" && !csrfMatches) return deny(ctx);
     return allow(ctx);
   }

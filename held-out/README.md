@@ -7,6 +7,6 @@ Aurelia, each must contain at least one vulnerable and one safe control, and
 together they must close all 40 vulnerable and all 40 safe categories using the
 same evidence contract.
 
-ARL, Rig, and benchmark implementers must not use held-out truth to tune models,
+ARL, Sivere, and benchmark implementers must not use held-out truth to tune models,
 instrumentation, traffic, or expected results. Failures are classified and fixed
 against general semantics before the held-out suite is rerun.

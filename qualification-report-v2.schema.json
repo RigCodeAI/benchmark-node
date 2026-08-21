@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://rig.local/schemas/benchmark-node-qualification-score-v1.json",
+  "$id": "https://sivere.local/schemas/benchmark-node-qualification-score-v1.json",
   "title": "BenchmarkNode high-assurance qualification score",
   "type": "object",
   "additionalProperties": false,
@@ -11,7 +11,7 @@
   ],
   "properties": {
     "schema_version": {"const": "security-benchmark-score/v1"},
-    "suite_id": {"const": "rig-benchmark-node-v1"},
+    "suite_id": {"const": "sivere-benchmark-node-v1"},
     "evidence_digest": {"$ref": "#/$defs/digest"},
     "evidence_envelope_closed": {"type": "boolean"},
     "held_out_applications_passed": {"type": "boolean"},

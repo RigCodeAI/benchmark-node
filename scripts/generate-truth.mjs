@@ -16,13 +16,13 @@ const properties = {
   "CWE-200": ["DIRECT", "RUNTIME_VALUE_FLOW", "sensitive_data", "IAST.SENSITIVE_DATA.RESPONSE_EXPOSURE"],
   "CWE-201": ["DIRECT", "RUNTIME_VALUE_FLOW", "sensitive_data", "IAST.SENSITIVE_DATA.OUTBOUND_EXPOSURE"],
   "CWE-22": ["DIRECT", "RUNTIME_EFFECT", "filesystem", "IAST.FILESYSTEM.INJECTION"],
-  "CWE-284": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "access_control", "RIG.ACCESS_CONTROL.IMPROPER"],
-  "CWE-287": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "authentication", "RIG.AUTHENTICATION.IMPROPER"],
-  "CWE-306": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "authentication", "RIG.AUTHENTICATION.MISSING"],
+  "CWE-284": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "access_control", "SIVERE.ACCESS_CONTROL.IMPROPER"],
+  "CWE-287": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "authentication", "SIVERE.AUTHENTICATION.IMPROPER"],
+  "CWE-306": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "authentication", "SIVERE.AUTHENTICATION.MISSING"],
   "CWE-328": ["ADAPTED", "RUNTIME_PROPERTY", "cryptography", "IAST.CRYPTO.WEAK_HASH"],
   "CWE-330": ["ADAPTED", "RUNTIME_PROPERTY", "randomness", "IAST.RANDOM.WEAK"],
-  "CWE-352": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "csrf", "RIG.CSRF.MISSING_OR_INVALID"],
-  "CWE-362": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "concurrency", "RIG.CONCURRENCY.RACE_CONDITION"],
+  "CWE-352": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "csrf", "SIVERE.CSRF.MISSING_OR_INVALID"],
+  "CWE-362": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "concurrency", "SIVERE.CONCURRENCY.RACE_CONDITION"],
   "CWE-400": ["ADAPTED", "RUNTIME_EFFECT", "resource_exhaustion", "IAST.REGEX.REDOS"],
   "CWE-501": ["DIRECT", "RUNTIME_VALUE_FLOW", "trust_boundary", "IAST.TRUST_BOUNDARY.VIOLATION"],
   "CWE-502": ["ADAPTED", "RUNTIME_SEMANTIC", "deserialization", "IAST.DESERIALIZATION.UNSAFE"],
@@ -30,15 +30,15 @@ const properties = {
   "CWE-601": ["DIRECT", "RUNTIME_SEMANTIC", "redirect", "IAST.REDIRECT.UNVALIDATED"],
   "CWE-611": ["ADAPTED", "RUNTIME_EFFECT", "xml", "IAST.XML.EXTERNAL_ENTITY"],
   "CWE-614": ["DIRECT", "RUNTIME_PROPERTY", "cookie", "IAST.COOKIE.INSECURE"],
-  "CWE-639": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "tenant_isolation", "RIG.AUTHORIZATION.CROSS_TENANT"],
+  "CWE-639": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "tenant_isolation", "SIVERE.AUTHORIZATION.CROSS_TENANT"],
   "CWE-643": ["ADAPTED", "RUNTIME_SEMANTIC", "xml_query", "IAST.XPATH.INJECTION"],
   "CWE-776": ["ADAPTED", "RUNTIME_EFFECT", "xml", "IAST.XML.ENTITY_EXPANSION"],
   "CWE-78": ["DIRECT", "RUNTIME_SEMANTIC", "process", "IAST.COMMAND.INJECTION"],
   "CWE-79": ["DIRECT", "RUNTIME_SEMANTIC", "html_output", "IAST.XSS.OUTPUT_CONTEXT"],
-  "CWE-840": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "workflow", "RIG.BUSINESS_LOGIC.LIMIT_BYPASS"],
-  "CWE-841": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "multi_service", "RIG.MULTI_SERVICE.FORBIDDEN_INTERACTION"],
-  "CWE-862": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "access_control", "RIG.AUTHORIZATION.MISSING"],
-  "CWE-863": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "access_control", "RIG.AUTHORIZATION.INCORRECT"],
+  "CWE-840": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "workflow", "SIVERE.BUSINESS_LOGIC.LIMIT_BYPASS"],
+  "CWE-841": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "multi_service", "SIVERE.MULTI_SERVICE.FORBIDDEN_INTERACTION"],
+  "CWE-862": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "access_control", "SIVERE.AUTHORIZATION.MISSING"],
+  "CWE-863": ["CONTROLLER", "RUNTIME_DIFFERENTIAL", "access_control", "SIVERE.AUTHORIZATION.INCORRECT"],
   "CWE-89": ["DIRECT", "RUNTIME_SEMANTIC", "sql", "IAST.SQL.INJECTION"],
   "CWE-90": ["DIRECT", "RUNTIME_SEMANTIC", "directory_query", "IAST.LDAP.INJECTION"],
   "CWE-918": ["DIRECT", "RUNTIME_EFFECT", "outbound_http", "IAST.OUTBOUND_HTTP.INJECTION"],
@@ -53,7 +53,7 @@ const properties = {
 };
 
 const supportPolicy = {
-  schema_version: "rig-language-support-policy/v1",
+  schema_version: "sivere-language-support-policy/v1",
   language: "javascript-typescript",
   state: "QUALIFICATION",
   runtime_family: "node-v8-supported-22-26",
@@ -109,7 +109,7 @@ for (const category of categories) {
       if (control !== "unknown") detail.route = controllerRoute(category, control);
       detail.source_location = control === "unknown"
         ? "qualification/runtime-capability-contract"
-        : `apps/koa-product/.rig.json#${category.toLowerCase()}-${control}`;
+        : `apps/koa-product/.sivere.json#${category.toLowerCase()}-${control}`;
       detail.sink_location = control === "unknown"
         ? `qualification/runtime-capability-contract#${category}`
         : controllerLocation(category);
@@ -146,8 +146,8 @@ const digestPaths = collectFiles(["apps", "controls", "corpus/language"])
 const sourceDigests = Object.fromEntries(digestPaths.map((relative) => [relative, `sha256:${sha256(fs.readFileSync(path.join(root, relative)))}`]));
 
 const truth = {
-  schema_version: "rig-benchmark-node-truth/v1",
-  suite_id: "rig-benchmark-node-v1",
+  schema_version: "sivere-benchmark-node-truth/v1",
+  suite_id: "sivere-benchmark-node-v1",
   suite_state: "QUALIFICATION",
   support_policy: "support-policy-v1.json",
   exact_family: {

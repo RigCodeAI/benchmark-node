@@ -22,7 +22,7 @@ qualification result.
 
 ## Capability-gap controls
 
-An expected `UNKNOWN` control does not claim that Rig sent a request to an
+An expected `UNKNOWN` control does not claim that Sivere sent a request to an
 `/unknown` route. It verifies a narrower product behavior: when the runtime or
 controller lacks the exact semantic capability named by the control, the signed
 `node-capability-controls.json` artifact must retain that gap with the exact

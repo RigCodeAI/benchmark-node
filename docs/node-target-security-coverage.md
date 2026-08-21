@@ -42,7 +42,7 @@ and block a clean qualification result.
 
 The public Koa application is category-complete. Framework integration fixtures
 exercise Koa 2/3, CommonJS/ESM, NestJS 10/11 with Express/Fastify, and Aurelia
-1/2. Rig's product CI runs the category denominator on every locked Node runtime
+1/2. Sivere's product CI runs the category denominator on every locked Node runtime
 and the framework matrix separately. Promotion then requires independently
 governed Koa, NestJS, and Aurelia evidence as described in
 [qualification.md](qualification.md).
