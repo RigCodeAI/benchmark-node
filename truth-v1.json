@@ -56,11 +56,11 @@
     "apps/koa-product/src/semantics/data.js": "sha256:fdee2d8b3bc5e287001357f9e92db350c2715bdfe7fadd631f6975098796ee63",
     "apps/koa-product/src/semantics/helpers.js": "sha256:836fc7441f59fd5499bc9493f329bc42fd267d050d4cc42fe0e311c8e799b0d9",
     "apps/koa-product/src/semantics/index.js": "sha256:a79719827b222a2336b103e9ce2cd895d747991cce6e47c971039cebfeff01c2",
-    "apps/koa-product/src/semantics/injection.js": "sha256:ea081b3f7b021452d06175968232e5a1b8b6ccb36eb3bcaeb6076f56222f7c92",
+    "apps/koa-product/src/semantics/injection.js": "sha256:9fad2c1395c143a249fa239329492f8da847640c621f6fabb2b770da442230f9",
     "apps/koa-product/src/semantics/node.js": "sha256:cb4eebfde650cafef12f1de900db1eb332d3cfa659811f7eaea202baa94117e8",
     "apps/koa-product/src/semantics/output.js": "sha256:c76ba26996b491a7c9834d748d599d15cafc741af86ff2663d74dd4b86fc72fd",
     "apps/koa-product/src/server.js": "sha256:ff628a6f8d1c75c071c9f0250d08a10d6d914548abebbb348ebe27446c518446",
-    "apps/koa-product/test/application.test.js": "sha256:225a1b57928f46725a0dbc75a6266c551b93d946d6ae1eaee249d657bb384711",
+    "apps/koa-product/test/application.test.js": "sha256:2395e1ce0480b3d83fb1a9f0e052b1f82fffabd93edc17ceffaf8b2bffdca94f",
     "apps/koa-source-breadth/package-lock.json": "sha256:b049e1a61437e3966819729249d7b34f09bf2c8e1152beed9960c283725617c0",
     "apps/koa-source-breadth/package.json": "sha256:2c7bb8b9d746ca7e09b97f783f459155e5a1f6e714cb83e2502176d4e72e3c18",
     "apps/koa-source-breadth/server.js": "sha256:d8ea6629740ebce9ac66de95e316565b846b51bd44842a51d51324ff79712e9e",
@@ -1110,7 +1110,7 @@
       "route": "/benchmark/cwe-943/vulnerable",
       "sink_family": "document_query",
       "source_location": "/benchmark/cwe-943/vulnerable",
-      "sink_location": "apps/koa-product/src/semantics/injection.js:161",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:162",
       "rule_id": "IAST.NOSQL.INJECTION"
     },
     {
@@ -1120,7 +1120,7 @@
       "route": "/benchmark/cwe-943/safe",
       "sink_family": "document_query",
       "source_location": "/benchmark/cwe-943/safe",
-      "sink_location": "apps/koa-product/src/semantics/injection.js:168"
+      "sink_location": "apps/koa-product/src/semantics/injection.js:169"
     },
     {
       "case_id": "cwe-943-unknown",

@@ -135,8 +135,8 @@ cwe-94-vulnerable,CWE-94,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/koa-product
 cwe-94-safe,CWE-94,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/koa-product,/benchmark/cwe-94/safe,/benchmark/cwe-94/safe,apps/koa-product/src/semantics/injection.js:106,,
 cwe-94-unknown,CWE-94,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/koa-product,,qualification/runtime-capability-contract,qualification/runtime-capability-contract#CWE-94,,node_cwe_94_semantic_coordinate_unresolved
 cwe-94-unsupported,CWE-94,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-943-vulnerable,CWE-943,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/koa-product,/benchmark/cwe-943/vulnerable,/benchmark/cwe-943/vulnerable,apps/koa-product/src/semantics/injection.js:161,IAST.NOSQL.INJECTION,
-cwe-943-safe,CWE-943,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/koa-product,/benchmark/cwe-943/safe,/benchmark/cwe-943/safe,apps/koa-product/src/semantics/injection.js:168,,
+cwe-943-vulnerable,CWE-943,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/koa-product,/benchmark/cwe-943/vulnerable,/benchmark/cwe-943/vulnerable,apps/koa-product/src/semantics/injection.js:162,IAST.NOSQL.INJECTION,
+cwe-943-safe,CWE-943,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/koa-product,/benchmark/cwe-943/safe,/benchmark/cwe-943/safe,apps/koa-product/src/semantics/injection.js:169,,
 cwe-943-unknown,CWE-943,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/koa-product,,qualification/runtime-capability-contract,qualification/runtime-capability-contract#CWE-943,,node_cwe_943_semantic_coordinate_unresolved
 cwe-943-unsupported,CWE-943,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
 node-event-loop-starvation-vulnerable,NODE-EVENT-LOOP-STARVATION,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/koa-product,/benchmark/node-event-loop-starvation/vulnerable,/benchmark/node-event-loop-starvation/vulnerable,apps/koa-product/src/semantics/node.js:48,IAST.RESOURCE.EXHAUSTION,

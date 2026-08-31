@@ -1924,7 +1924,7 @@
       "repository_path": "apps/koa-product",
       "route": "/benchmark/cwe-943/vulnerable",
       "source_location": "/benchmark/cwe-943/vulnerable",
-      "sink_location": "apps/koa-product/src/semantics/injection.js:161",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:162",
       "rule_id": "IAST.NOSQL.INJECTION",
       "reason_code": null
     },
@@ -1938,7 +1938,7 @@
       "repository_path": "apps/koa-product",
       "route": "/benchmark/cwe-943/safe",
       "source_location": "/benchmark/cwe-943/safe",
-      "sink_location": "apps/koa-product/src/semantics/injection.js:168",
+      "sink_location": "apps/koa-product/src/semantics/injection.js:169",
       "rule_id": null,
       "reason_code": null
     },
