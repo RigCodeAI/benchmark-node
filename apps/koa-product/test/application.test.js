@@ -1,12 +1,22 @@
 "use strict";
 
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
 const test = require("node:test");
 const { handlers } = require("../src/semantics");
 const { createApp } = require("../src/server");
 
 test("the product denominator contains 29 runtime categories", () => {
   assert.equal(handlers.size, 29);
+});
+
+test("the Mongo control can be rebound to a disposable database", () => {
+  const source = fs.readFileSync(
+    path.join(__dirname, "..", "src", "semantics", "injection.js"),
+    "utf8",
+  );
+  assert.match(source, /process\.env\.MONGODB_URI/);
 });
 
 test("the Koa application starts and serves the health endpoint", async (context) => {

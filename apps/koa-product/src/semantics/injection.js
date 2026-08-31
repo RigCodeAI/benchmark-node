@@ -150,7 +150,8 @@ function xpathSafe(ctx) {
 
 function mongoCollection() {
   const { MongoClient } = require("mongodb");
-  return new MongoClient("mongodb://127.0.0.1:9", { serverSelectionTimeoutMS: 25 })
+  const connection = process.env.MONGODB_URI ?? "mongodb://127.0.0.1:9/benchmark";
+  return new MongoClient(connection, { serverSelectionTimeoutMS: 25 })
     .db("benchmark")
     .collection("records");
 }
